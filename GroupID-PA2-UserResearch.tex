@@ -1,113 +1,329 @@
-% ======================================================
-% TÀI LIỆU: Nhóm-PA2-[Tên đồ án]
-% Môn: CSC13112 - UI/UX Design
-% Nội dung: [Mô tả ngắn nội dung báo cáo PA2]
-% Tác giả: Nhóm [Tên nhóm]
-% Ngày tạo: Tháng 8/2026
-% ======================================================
+\documentclass[a4paper,12pt]{article}
 
-% --- Định dạng tài liệu ---
-% article: tài liệu ngắn (PA, báo cáo), không phân chương (chapter)
-% 12pt: cỡ chữ gốc 12pt (đọc dễ chịu trên A4)
-% a4paper: khổ giấy A4 (210mm x 297mm)
-\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{vietnam}
+\usepackage[a4paper,left=3.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
 
-% ===================== PACKAGES =====================
-% --- Gói hỗ trợ mã hóa và ngôn ngữ ---
-\usepackage[utf8]{inputenc}  % Hỗ trợ mã hóa UTF-8 (tiếng Việt, ký hiệu đặc biệt)
-\usepackage[T1]{fontenc}     % Bảng mã font T1 - hiển thị dấu tiếng Việt đúng cách
-\usepackage[vietnamese]{babel} % Hỗ trợ ngôn ngữ tiếng Việt (phân cách từ, font)
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{float}
 
-% --- Gói hỗ trợ bố cục và trình bày ---
-\usepackage{graphicx}   % Chèn ảnh (\includegraphics)
-\usepackage{booktabs}   % Bảng đẹp hơn với \toprule, \midrule, \bottomrule
-\usepackage{tabularx}   % Bảng tự động giãn cột theo \textwidth (cột X co giãn)
-\usepackage{hyperref}   % Liên kết siêu văn bản (\url, \href), đánh số chương mục
-\usepackage{enumitem}   % Tùy chỉnh danh sách (enumerate, itemize) - spacing, bullet style
-\usepackage{geometry}   % Đặt lề trang (left, right, top, bottom)
-\usepackage{xcolor}     % Hỗ trợ màu sắc (dùng trong hyperref, text color)
-\usepackage{titlesec}   % Tùy chỉnh định dạng tiêu đề section
-\usepackage{fancyhdr}   % Header/footer tùy chỉnh (trang tiêu, trang cuối)
-\usepackage{amssymb}    % Ký hiệu toán học mở rộng
-\usepackage[page,toc]{appendix} % Hỗ trợ appendix với environment appendices
-\usepackage{pifont}     % Ký hiệu tròn số (\ding{172}=①, \ding{173}=②, \ding{174}=③)
-\usepackage{pgfplots}   % Vẽ biểu đồ (charts)
-\pgfplotsset{compat=1.18} % Phiên bản pgfplots
-\usepackage{tikz}       % Vẽ đồ họa (cho trang bìa)
-\usepackage{tcolorbox}   % Hộp màu (cho trang bìa)
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
 
-% --- Thiết lập lề trang ---
-% Lề 2.5cm các cạnh: chuẩn cho báo cáo học thuật A4
-% left/right: lề trái/phải | top/bottom: lề trên/dưới
-\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
 
-% --- Fix fancyhdr: headheight phải đủ lớn cho header ---
-\setlength{\headheight}{15pt}  % Mặc định 12pt quá nhỏ, fancyhdr yêu cầu ≥ 14.93912pt
+\usepackage{forest}
+\usepackage{multicol}
+\usepackage{enumitem}
 
-% --- Cài đặt hyperlink ---
-% colorlinks=true: bật màu cho liên kết (thay vì khung viền)
-% linkcolor: màu liên kết nội bộ (mục lục, section)
-% urlcolor: màu liên kết URL bên ngoài
-% citecolor: màu trích dẫn tài liệu tham khảo
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,   % Xanh đậm
-    urlcolor=blue,   % Đồng bộ với linkcolor
-    citecolor=black            % Trích dẫn màu đen (trang trọng)
-}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{fancyhdr}
+\usepackage{fontawesome5}
 
-% ===================== HEADER / FOOTER =====================
-% fancyhdr: tạo header/footer tùy chỉnh cho tất cả trang
-\pagestyle{fancy}         % Kích hoạt chế độ fancy page style
-\fancyhf{}                % Xóa tất cả header/footer mặc định
-\fancyfoot[C]{\thepage}   % Số trang ở chính giữa footer
-% Header
-\fancyhead[L]{[MSSV] - [Họ tên]} % Trái
-\fancyhead[C]{} % Giữa
-\fancyhead[R]{[Lớp]} % Phải
-\renewcommand{\headrulewidth}{0.4pt}           % Đường kẻ ngang dưới header (0.4pt mảnh)
+\usepackage[vietnamese,english]{babel}
 
-% ===================== TITLE (TIÊU ĐỀ) =====================
-% \title: tiêu đề chính của tài liệu
-\title{\textbf{Project Assignment 2}}
 
-% --- Định dạng tiêu đề section ---
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \titleformat{\section}
 {\normalfont\large\bfseries}
 {\thesection}{1em}{}
 
-% --- Định dạng tiêu đề phần (trước appendix) ---
+\pagestyle{fancy}
+\fancyhf{} % Xóa header và footer mặc định
+\fancyfoot[C]{\thepage} % Số trang ở chính giữa footer
+% Header
+\fancyhead[L]{NHÓM 9} % Trái
+\fancyhead[C]{} % Giữa
+\fancyhead[R]{23KTPM2} % Phải
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue
+}
+
+\setlength{\parindent}{0pt}
+\renewcommand{\contentsname}{Table of contents}
 \titleformat{\section}{\Large\bfseries}{Part \Roman{section}.}{1em}{}
 \titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{1em}{}
 
-% --- Cài đặt paragraph ---
-\setlength{\parindent}{0pt}
-\renewcommand{\contentsname}{Table of contents}
-
-% ======================================================
-% BẮT ĐẦU NỘI DUNG TÀI LIỆU
-% ======================================================
-\begin{document}        % Bắt đầu nội dung tài liệu
+\begin{document}
 
 % ------------ TRANG BÌA -------------
-\input{sections/cover.tex}
+\begin{titlepage}
+\begin{tikzpicture}[remember picture,overlay,inner sep=0,outer sep=0]
+     \draw[blue!70!black,line width=4pt] ([xshift=-1.5cm,yshift=-2cm]current page.north east) coordinate (A)--([xshift=1.5cm,yshift=-2cm]current page.north west) coordinate(B)--([xshift=1.5cm,yshift=2cm]current page.south west) coordinate (C)--([xshift=-1.5cm,yshift=2cm]current page.south east) coordinate(D)--cycle;
+
+     \draw ([yshift=0.5cm,xshift=-0.5cm]A)-- ([yshift=0.5cm,xshift=0.5cm]B)--
+     ([yshift=-0.5cm,xshift=0.5cm]B) --([yshift=-0.5cm,xshift=-0.5cm]B)--([yshift=0.5cm,xshift=-0.5cm]C)--([yshift=0.5cm,xshift=0.5cm]C)--([yshift=-0.5cm,xshift=0.5cm]C)-- ([yshift=-0.5cm,xshift=-0.5cm]D)--([yshift=0.5cm,xshift=-0.5cm]D)--([yshift=0.5cm,xshift=0.5cm]D)--([yshift=-0.5cm,xshift=0.5cm]A)--([yshift=-0.5cm,xshift=-0.5cm]A)--([yshift=0.5cm,xshift=-0.5cm]A);
 
 
-\tableofcontents        % Tự động tạo mục lục từ các \section, \subsection
-\newpage                % Ngắt trang - mục lục ở trang riêng
+     \draw ([yshift=-0.3cm,xshift=0.3cm]A)-- ([yshift=-0.3cm,xshift=-0.3cm]B)--
+     ([yshift=0.3cm,xshift=-0.3cm]B) --([yshift=0.3cm,xshift=0.3cm]B)--([yshift=-0.3cm,xshift=0.3cm]C)--([yshift=-0.3cm,xshift=-0.3cm]C)--([yshift=0.3cm,xshift=-0.3cm]C)-- ([yshift=0.3cm,xshift=0.3cm]D)--([yshift=-0.3cm,xshift=0.3cm]D)--([yshift=-0.3cm,xshift=-0.3cm]D)--([yshift=0.3cm,xshift=-0.3cm]A)--([yshift=0.3cm,xshift=0.3cm]A)--([yshift=-0.3cm,xshift=0.3cm]A);
 
-% ======================================================
-%          BIBLIOGRAPHY
-% ======================================================
-\bibliographystyle{plain}
-\bibliography{references}
+\end{tikzpicture}
+\vspace*{1cm}
+\begin{center}
+    \makebox[\textwidth][c]{\large\bfseries ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH}\\[4pt]
+    \makebox[\textwidth][c]{\large\bfseries TRƯỜNG ĐẠI HỌC KHOA HỌC TỰ NHIÊN - VNUHCM}\\[4pt]
+    \makebox[\textwidth][c]{\large\bfseries KHOA CÔNG NGHỆ THÔNG TIN}\\[1cm]
+    
 
-% % ======================================================
-% %          PHỤ LỤC
-% % ======================================================
-% \newpage
-% \appendix
-% \appendixpage
-% \addappheadtotoc
+    \includegraphics[scale=0.15]{logo.jpg}\\[0.8cm]
+    % Môn học
+    {\large\bfseries THIẾT KẾ GIAO DIỆN}
 
+    \vspace{6pt}
+
+    {\large Lớp: \textbf{23KTPM2}}
+    
+    \vspace{10pt}
+    
+    % Tiêu đề đồ án (một dòng, màu, to, căn giữa)
+    \makebox[\textwidth][c]{\large\bfseries \color{black!70!black}USER ANALYSIS - PA2}
+    
+    \vspace{1.5cm}
+
+    % Giáo viên box
+    \begin{tcolorbox}[colback=blue!5!white, colframe=blue!50!black, width=0.9\textwidth, boxrule=0.8pt, arc=3pt, left=8pt, right=8pt]
+        \textbf{Thầy: Lê Khánh Duy}\\
+        \textbf{Thầy: Nguyễn Huy Khánh}\\
+        \textbf{Thầy: Phạm Nguyễn Sơn Tùng}
+    \end{tcolorbox}
+    \vspace{1cm}
+
+    % Sinh viên box
+    \begin{tcolorbox}[colback=gray!10!white, colframe=gray!60!black, width=0.9\textwidth, boxrule=0.8pt, arc=3pt, left=8pt, right=8pt]
+        \textbf{Sinh viên thực hiện:} \\
+        Huỳnh Lê Khôi -- MSSV: 23127068 \\ 
+        Bùi Đức Đạt -- MSSV: 23127337 \\
+        Phan Thị Hương Xuân -- MSSV: 23127147 \\
+        Nguyễn Tuấn Minh -- MSSV: 22127271 \\
+        Nguyễn Hồng Phúc - MSSV: 23127333
+        
+    \end{tcolorbox}
+
+    \vfill
+    {\large\textbf{HO CHI MINH CITY, 2026}}
+\end{center}
+\end{titlepage}
+\newpage
+\section*{Phương pháp nghiên cứu}
+Mục tiêu của quá trình nghiên cứu người dùng là tìm hiểu nhu cầu, hành vi, khó khăn và mong muốn của người dùng trong quá trình sử dụng hệ thống. Nhóm sử dụng nhiều phương pháp khác nhau nhằm thu thập dữ liệu từ nhiều góc nhìn để đảm bảo tính khách quan và độ tin cậy của kết quả nghiên cứu.
+
+Tổng cộng nhóm đã khảo sát \textbf{8 người tham gia} thông qua ba phương pháp:
+
+\begin{itemize}
+    \item Google Form: 4 người
+    \item Phỏng vấn trực tuyến qua Google Meet: 2 người
+    \item Phỏng vấn trực tiếp: 2 người
+\end{itemize}
+
+\subsection{Phương pháp 1: Khảo sát bằng Google Form}
+
+Nhóm xây dựng một bảng khảo sát trực tuyến bằng Google Form để thu thập dữ liệu ban đầu về:
+
+\begin{itemize}
+    \item Thông tin cá nhân cơ bản
+    \item Thói quen sử dụng
+    \item Những khó khăn thường gặp
+    \item Mong muốn đối với hệ thống
+\end{itemize}
+
+Có tổng cộng \textbf{4 người} tham gia khảo sát. Mỗi người mất khoảng \textbf{5--10 phút} để hoàn thành biểu mẫu. Dữ liệu được lưu tự động trên Google Sheets để phục vụ quá trình phân tích.
+
+\subsubsection*{Danh sách người tham gia}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|p{4cm}|c|p{4cm}|}
+\hline
+\textbf{STT} & \textbf{Họ và tên} & \textbf{Độ tuổi} & \textbf{Ngành nghề hiện tại} \\
+\hline
+1 & & & \\
+\hline
+2 & & & \\
+\hline
+3 & & & \\
+\hline
+4 & & & \\
+\hline
+\end{tabular}
+\caption{Danh sách người tham gia khảo sát Google Form}
+\end{table}
+
+\vspace{0.5cm}
+
+\subsubsection*{Liên kết khảo sát Google Form}
+
+\noindent
+\textbf{Link khảo sát:}
+
+\url{https://drive.google.com/drive/folders/1GzrPcUt_xRfvSUUFHpV7oFDwdJo4OQle?usp=drive_link}
+
+\vspace{5cm}
+
+\newpage
+
+\subsection{Phương pháp 2: Phỏng vấn trực tuyến qua Google Meet}
+
+Sau khi thu thập dữ liệu từ Google Form, nhóm lựa chọn hai người để thực hiện phỏng vấn chuyên sâu thông qua Google Meet nhằm hiểu rõ hơn về:
+
+\begin{itemize}
+    \item Quy trình thực hiện công việc
+    \item Những khó khăn thường gặp
+    \item Mức độ hài lòng với các giải pháp hiện tại
+    \item Mong muốn cải thiện hệ thống
+\end{itemize}
+
+Có tổng cộng \textbf{2 người} tham gia. Mỗi buổi phỏng vấn kéo dài khoảng \textbf{20--30 phút}. Các buổi phỏng vấn được ghi chú và ghi âm (được sự đồng ý của người tham gia) để phục vụ phân tích.
+
+\subsubsection*{Danh sách người tham gia}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|p{4cm}|c|p{7cm}|}
+\hline
+\textbf{STT} & \textbf{Họ và tên} & \textbf{Độ tuổi} & \textbf{Ngành nghề hiện tại} \\
+\hline
+1 & Võ Nhật Việt & 21 & Sinh viên Trường Đại học Kinh tế TP.HCM (UEH), ngành Kiểm toán; ít sử dụng máy tính, chủ yếu dùng để làm việc với Google Sheets. \\
+\hline
+2 & Trần Nguyễn Khánh Hoài & 21 & Sinh viên Trường Đại học Bách khoa TP.HCM (BKU), ngành Cơ khí; sử dụng máy tính thường xuyên cho học tập và các công việc chuyên môn. \\
+\hline
+\end{tabular}
+\caption{Danh sách người tham gia phỏng vấn}
+\end{table}
+\vspace{0.5cm}
+
+\textbf{Hình minh họa buổi phỏng vấn}
+
+\vspace{5cm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/GoogleMeet.png}
+    \caption{Biểu mẫu khảo sát Google Form}
+    \label{fig:google_form}
+\end{figure}
+
+\subsection{Phương pháp 3: Phỏng vấn trực tiếp}
+
+Để quan sát thêm về hành vi và cách người dùng tương tác trong môi trường thực tế, nhóm tiến hành phỏng vấn trực tiếp với hai người dùng.
+
+Buổi phỏng vấn tập trung vào:
+
+\begin{itemize}
+    \item Quan sát cách thực hiện công việc
+    \item Những khó khăn phát sinh trong thực tế
+    \item Các công cụ đang sử dụng
+    \item Những đề xuất cải thiện
+\end{itemize}
+
+Có tổng cộng \textbf{2 người} tham gia. Mỗi buổi kéo dài khoảng \textbf{25--35 phút}. Dữ liệu được ghi chép kết hợp với hình ảnh minh họa (được người tham gia đồng ý).
+
+\subsubsection*{Danh sách người tham gia}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|p{4cm}|c|p{4cm}|}
+\hline
+\textbf{STT} & \textbf{Họ và tên} & \textbf{Độ tuổi} & \textbf{Ngành nghề hiện tại} \\
+\hline
+1 & Trịnh Lương Nhất Quân & 21 & Sinh viên ngành Khoa học Máy tính, Trường Đại học Bách khoa - ĐHQG-HCM (BKU) \\
+\hline
+2 & Trịnh Lương Nhật Quân & 21 & Sinh viên ngành Kinh tế, Trường Đại học Ngoại thương - Cơ sở HCM (FTU2) \\
+\hline
+\end{tabular}
+\caption{Danh sách người tham gia phỏng vấn trực tiếp}
+\end{table}
+
+\vspace{0.5cm}
+
+\textbf{Hình minh họa buổi phỏng vấn trực tiếp}
+
+\vspace{5cm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/LiveInterview.png}
+    \caption{Biểu mẫu khảo sát Google Form}
+    \label{fig:google_form}
+\end{figure}
+
+\newpage
+
+\subsection{Tóm tắt quá trình nghiên cứu}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|c|c|p{5cm}|}
+\hline
+\textbf{Phương pháp} & \textbf{Số người} & \textbf{Thời lượng} & \textbf{Cách ghi nhận dữ liệu} \\
+\hline
+Google Form & 4 & 5--10 phút & Google Sheets \\
+\hline
+Google Meet & 2 & 20--30 phút & Ghi chú + ghi âm \\
+\hline
+Phỏng vấn trực tiếp & 2 & 25--35 phút & Ghi chú + hình ảnh \\
+\hline
+\end{tabular}
+\caption{Tổng kết các phương pháp nghiên cứu người dùng}
+\end{table}
+
+\section{Persona}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/LK.png}
+    \caption{Persona LK - người chuyên dùng máy tính}
+    \label{fig:google_form}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/DD.png}
+    \caption{Persona DĐ - người ít dùng máy tính}
+    \label{fig:google_form}
+\end{figure}
+
+\section{Sequence Model}
+
+Sequence Model mô tả trình tự các bước mà người dùng thực hiện khi sử dụng nền tảng xem thể thao trực tuyến, từ lúc mở ứng dụng, tìm kiếm trận đấu, lựa chọn nội dung đến quá trình theo dõi trận đấu. Mô hình giúp nhóm nhận diện những bước còn dư thừa hoặc gây mất thời gian, đồng thời xác định các điểm cần tối ưu để người dùng có thể truy cập trận đấu nhanh chóng và thuận tiện hơn.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/sequence.png}
+    \caption{Sequence Model}
+    \label{fig:sequence}
+\end{figure}
+
+\section{Flow Model}
+
+Flow Model thể hiện mối quan hệ và luồng tương tác giữa người dùng với các thành phần của hệ thống cũng như các tác nhân bên ngoài. Thông qua mô hình này, nhóm có thể xác định các điểm tương tác quan trọng cũng như những vị trí dễ phát sinh lỗi hoặc làm gián đoạn trải nghiệm, từ đó đề xuất các cải tiến nhằm đảm bảo quá trình sử dụng diễn ra liền mạch.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/flow.png}
+    \caption{Flow Model}
+    \label{fig:flow}
+\end{figure}
+
+\section{Artifact Model}
+
+Artifact Model mô tả các đối tượng mà người dùng thường xuyên tương tác trong quá trình sử dụng ứng dụng xem thể thao, bao gồm các thiết bị cũng như mối liên hệ giữa chúng, từ đó hỗ trợ việc tổ chức thông tin và thiết kế giao diện theo hướng trực quan, dễ sử dụng và phù hợp với nhu cầu của người dùng.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/artifact.png}
+    \caption{Artifact Model}
+    \label{fig:artifact}
+\end{figure}
 \end{document}

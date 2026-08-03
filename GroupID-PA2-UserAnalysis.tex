@@ -1,22 +1,36 @@
 \documentclass[a4paper,12pt]{article}
+
 \usepackage[utf8]{vietnam}
-\usepackage[left=3.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
-\usepackage{amsmath,graphicx,booktabs,tabularx}
-\usepackage{fancyhdr}
-\usepackage{titlesec}
-\usepackage{hyperref}
-\usepackage{xcolor}
-\usepackage{tikz}
-\usepackage{tcolorbox}
-\usepackage{tocloft}
+\usepackage[a4paper,left=3.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+
+\usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{subcaption}
-\usepackage{forest}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
 \usepackage{float}
-\usepackage{fancyhdr}
-\usepackage[vietnamese,english]{babel}
-\usepackage{titlesec}
 
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+
+\usepackage{xcolor}
+\usepackage[table]{xcolor}
+
+\usepackage{forest}
+\usepackage{multicol}
+\usepackage{enumitem}
+
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{fancyhdr}
+\usepackage{fontawesome5}
+
+\usepackage[vietnamese,english]{babel}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \titleformat{\section}
 {\normalfont\large\bfseries}
 {\thesection}{1em}{}
@@ -25,9 +39,9 @@
 \fancyhf{} % Xóa header và footer mặc định
 \fancyfoot[C]{\thepage} % Số trang ở chính giữa footer
 % Header
-\fancyhead[L]{23127068 - Huỳnh Lê Khôi} % Trái
+\fancyhead[L]{NHÓM 9} % Trái
 \fancyhead[C]{} % Giữa
-\fancyhead[R]{23CLC} % Phải
+\fancyhead[R]{23KTPM2} % Phải
 
 \hypersetup{
     colorlinks=true,
@@ -101,421 +115,67 @@
 \end{center}
 \end{titlepage}
 \newpage
-\section*{Phương pháp nghiên cứu}
-Mục tiêu của quá trình nghiên cứu người dùng là tìm hiểu nhu cầu, hành vi, khó khăn và mong muốn của người dùng trong quá trình sử dụng hệ thống. Nhóm sử dụng nhiều phương pháp khác nhau nhằm thu thập dữ liệu từ nhiều góc nhìn để đảm bảo tính khách quan và độ tin cậy của kết quả nghiên cứu.
-
-Tổng cộng nhóm đã khảo sát \textbf{8 người tham gia} thông qua ba phương pháp:
-
-\begin{itemize}
-    \item Google Form: 4 người
-    \item Phỏng vấn trực tuyến qua Google Meet: 2 người
-    \item Phỏng vấn trực tiếp: 2 người
-\end{itemize}
-
-\subsection{Phương pháp 1: Khảo sát bằng Google Form}
-
-Nhóm xây dựng một bảng khảo sát trực tuyến bằng Google Form để thu thập dữ liệu ban đầu về:
-
-\begin{itemize}
-    \item Thông tin cá nhân cơ bản
-    \item Thói quen sử dụng
-    \item Những khó khăn thường gặp
-    \item Mong muốn đối với hệ thống
-\end{itemize}
-
-Có tổng cộng \textbf{4 người} tham gia khảo sát. Mỗi người mất khoảng \textbf{5--10 phút} để hoàn thành biểu mẫu. Dữ liệu được lưu tự động trên Google Sheets để phục vụ quá trình phân tích.
-
-\subsubsection*{Danh sách người tham gia}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|c|p{4cm}|c|p{4cm}|}
-\hline
-\textbf{STT} & \textbf{Họ và tên} & \textbf{Độ tuổi} & \textbf{Ngành nghề hiện tại} \\
-\hline
-1 & & & \\
-\hline
-2 & & & \\
-\hline
-3 & & & \\
-\hline
-4 & & & \\
-\hline
-\end{tabular}
-\caption{Danh sách người tham gia khảo sát Google Form}
-\end{table}
-
-\vspace{0.5cm}
-
-\subsubsection*{Liên kết khảo sát Google Form}
-
-\noindent
-\textbf{Link khảo sát:}
-
-\url{https://drive.google.com/drive/folders/1GzrPcUt_xRfvSUUFHpV7oFDwdJo4OQle?usp=drive_link}
-
-\vspace{5cm}
-
-\newpage
-
-\subsection{Phương pháp 2: Phỏng vấn trực tuyến qua Google Meet}
-
-Sau khi thu thập dữ liệu từ Google Form, nhóm lựa chọn hai người để thực hiện phỏng vấn chuyên sâu thông qua Google Meet nhằm hiểu rõ hơn về:
-
-\begin{itemize}
-    \item Quy trình thực hiện công việc
-    \item Những khó khăn thường gặp
-    \item Mức độ hài lòng với các giải pháp hiện tại
-    \item Mong muốn cải thiện hệ thống
-\end{itemize}
-
-Có tổng cộng \textbf{2 người} tham gia. Mỗi buổi phỏng vấn kéo dài khoảng \textbf{20--30 phút}. Các buổi phỏng vấn được ghi chú và ghi âm (được sự đồng ý của người tham gia) để phục vụ phân tích.
-
-\subsubsection*{Danh sách người tham gia}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|c|p{4cm}|c|p{7cm}|}
-\hline
-\textbf{STT} & \textbf{Họ và tên} & \textbf{Độ tuổi} & \textbf{Ngành nghề hiện tại} \\
-\hline
-1 & Võ Nhật Việt & 21 & Sinh viên Trường Đại học Kinh tế TP.HCM (UEH), ngành Kiểm toán; ít sử dụng máy tính, chủ yếu dùng để làm việc với Google Sheets. \\
-\hline
-2 & Trần Nguyễn Khánh Hoài & 21 & Sinh viên Trường Đại học Bách khoa TP.HCM (BKU), ngành Cơ khí; sử dụng máy tính thường xuyên cho học tập và các công việc chuyên môn. \\
-\hline
-\end{tabular}
-\caption{Danh sách người tham gia phỏng vấn}
-\end{table}
-\vspace{0.5cm}
-
-\textbf{Hình minh họa buổi phỏng vấn}
-
-\vspace{5cm}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{images/GoogleMeet.png}
-    \caption{Biểu mẫu khảo sát Google Form}
-    \label{fig:google_form}
+    \includegraphics[width=0.8\textwidth]{affinity.png}
+    \caption{Affinity Diagram}
+    \label{fig:ten_anh}
 \end{figure}
 
-\subsection{Phương pháp 3: Phỏng vấn trực tiếp}
+\section{User Feedback}
 
-Để quan sát thêm về hành vi và cách người dùng tương tác trong môi trường thực tế, nhóm tiến hành phỏng vấn trực tiếp với hai người dùng.
+Thông qua quá trình khảo sát, phỏng vấn và quan sát người dùng trong quá trình sử dụng ứng dụng liên quan đến video streaming, nhóm ghi nhận nhiều vấn đề ảnh hưởng trực tiếp đến trải nghiệm người dùng. Các phản hồi chủ yếu tập trung vào khả năng sử dụng (usability), tính nhất quán của giao diện và sự thuận tiện khi thao tác trên nhiều thiết bị.
 
-Buổi phỏng vấn tập trung vào:
+Các vấn đề được người dùng đề cập bao gồm:
 
 \begin{itemize}
-    \item Quan sát cách thực hiện công việc
-    \item Những khó khăn phát sinh trong thực tế
-    \item Các công cụ đang sử dụng
-    \item Những đề xuất cải thiện
+    \item Nút đóng quảng cáo (\textit{Close}) hiển thị không ổn định, lúc rõ lúc mờ, gây khó khăn trong việc xác định vị trí để tắt quảng cáo.
+    
+    \item Vị trí xuất hiện của quảng cáo không nhất quán, đôi khi che nội dung hoặc xuất hiện ở những vị trí gây mất tập trung.
+    
+    \item Thanh điều khiển thời gian (seek bar) có vùng tương tác (hitbox) quá nhỏ, đặc biệt trên phiên bản web, khiến việc tua video thiếu chính xác.
+    
+    \item Người dùng có kích thước ngón tay lớn gặp khó khăn khi kéo thanh thời gian trên thiết bị di động.
+    
+    \item Giao diện hiển thị quá nhiều hình ảnh trong khi thông tin bằng văn bản còn hạn chế, làm người dùng khó nhận biết nhanh nội dung cần xem.
+    
+    \item Người dùng mới cảm thấy giao diện khá rối vì có quá nhiều thông tin xuất hiện ngay trên màn hình đầu tiên.
+    
+    \item Việc sử dụng ứng dụng bằng một tay trên điện thoại chưa thuận tiện do một số thành phần điều khiển nằm ngoài vùng thao tác tự nhiên.
+    
+    \item Các cửa sổ Pop-up xuất hiện với tần suất cao, đôi khi làm gián đoạn trải nghiệm xem nội dung.
+    
+    \item Một số hiệu ứng chuyển động (animation) chưa thật sự cần thiết và có thể làm giảm tốc độ thao tác.
+    
+    \item Chưa có hướng dẫn sử dụng hoặc giới thiệu các chức năng chính dành cho người dùng mới.
 \end{itemize}
 
-Có tổng cộng \textbf{2 người} tham gia. Mỗi buổi kéo dài khoảng \textbf{25--35 phút}. Dữ liệu được ghi chép kết hợp với hình ảnh minh họa (được người tham gia đồng ý).
+\section{Design Suggestions}
 
-\subsubsection*{Danh sách người tham gia}
+Dựa trên các phản hồi thu thập được, nhóm đề xuất một số giải pháp nhằm cải thiện trải nghiệm người dùng, giảm số lượng thao tác không cần thiết và nâng cao khả năng sử dụng của hệ thống.
 
-\begin{table}[H]
-\centering
-\begin{tabular}{|c|p{4cm}|c|p{4cm}|}
-\hline
-\textbf{STT} & \textbf{Họ và tên} & \textbf{Độ tuổi} & \textbf{Ngành nghề hiện tại} \\
-\hline
-1 & & & \\
-\hline
-2 & & & \\
-\hline
-\end{tabular}
-\caption{Danh sách người tham gia phỏng vấn trực tiếp}
-\end{table}
+Các đề xuất bao gồm:
 
-\vspace{0.5cm}
-
-\textbf{Hình minh họa buổi phỏng vấn trực tiếp}
-
-\vspace{5cm}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{images/LiveInterview.png}
-    \caption{Biểu mẫu khảo sát Google Form}
-    \label{fig:google_form}
-\end{figure}
-
-\newpage
-
-\subsection{Tóm tắt quá trình nghiên cứu}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|p{4cm}|c|c|p{5cm}|}
-\hline
-\textbf{Phương pháp} & \textbf{Số người} & \textbf{Thời lượng} & \textbf{Cách ghi nhận dữ liệu} \\
-\hline
-Google Form & 4 & 5--10 phút & Google Sheets \\
-\hline
-Google Meet & 2 & 20--30 phút & Ghi chú + ghi âm \\
-\hline
-Phỏng vấn trực tiếp & 2 & 25--35 phút & Ghi chú + hình ảnh \\
-\hline
-\end{tabular}
-\caption{Tổng kết các phương pháp nghiên cứu người dùng}
-\end{table}
-
-\begin{tcolorbox}[
-enhanced,
-colback=white,
-colframe=MainBlue,
-arc=5mm,
-boxrule=1.2pt,
-drop shadow,
-]
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{center}
-
-{\Huge\bfseries LK}
-
-\vspace{0.15cm}
-
-{\Large Primary Persona}
-
-\vspace{0.3cm}
-
-\includegraphics[width=2cm]{avatar1.jpg}
-
-\end{center}
-
-\vspace{0.3cm}
-
-\begin{center}
-
-\begin{tcolorbox}[
-colback=LightBlue,
-colframe=LightBlue,
-arc=3mm,
-width=.95\textwidth]
-
-\centering
-\Large
-\textit{"Tôi xem bóng đá gần như mỗi ngày. Điều quan trọng nhất là có thể tìm trận đấu nhanh, chất lượng phát sóng ổn định và xem liên tục trên laptop."}
-
-\end{tcolorbox}
-
-\end{center}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{multicols}{2}
-
-\begin{infobox}{LightBlue}{\faUser\ Thông tin}
-
-\begin{itemize}[leftmargin=*]
-\item Tuổi: 22
-\item Sinh viên CNTT
-\item TP. Hồ Chí Minh
-\item Thiết bị chính: Laptop
-\item Thiết bị phụ: Android
-\item Streaming 5–6 ngày/tuần
+\begin{itemize}
+    \item Thiết kế nút đóng quảng cáo với kích thước lớn hơn, độ tương phản cao và luôn hiển thị rõ ràng để người dùng dễ nhận biết.
+    
+    \item Quy định vị trí hiển thị quảng cáo thống nhất trên toàn bộ hệ thống nhằm giảm sự bất ngờ và tránh che khuất nội dung quan trọng.
+    
+    \item Mở rộng vùng tương tác (hitbox) của thanh điều khiển thời gian để việc tua video trở nên chính xác và dễ thao tác hơn trên cả máy tính và thiết bị di động.
+    
+    \item Điều chỉnh bố cục giao diện theo hướng ưu tiên thông tin quan trọng, giảm số lượng hình ảnh không cần thiết và tăng khả năng đọc bằng văn bản.
+    
+    \item Đơn giản hóa giao diện trang chủ, chỉ hiển thị các nội dung chính nhằm giảm cảm giác quá tải đối với người dùng mới.
+    
+    \item Bố trí lại các nút chức năng theo vùng thao tác tự nhiên của ngón tay để cải thiện khả năng sử dụng bằng một tay trên điện thoại.
+    
+    \item Giảm số lượng Pop-up và chỉ hiển thị khi thực sự cần thiết để hạn chế làm gián đoạn trải nghiệm xem.
+    
+    \item Hạn chế các hiệu ứng chuyển động không cần thiết nhằm tăng tốc độ phản hồi của giao diện và giúp người dùng tập trung vào nội dung.
+    
+    \item Bổ sung màn hình giới thiệu hoặc hướng dẫn nhanh (Onboarding) cho người dùng mới để họ dễ dàng làm quen với các chức năng chính của ứng dụng.
+    
+    \item Thiết kế giao diện theo hướng tương đồng với các nền tảng streaming phổ biến như YouTube nhằm tận dụng thói quen sử dụng sẵn có của người dùng và rút ngắn thời gian làm quen với hệ thống.
 \end{itemize}
-
-\end{infobox}
-
-\vspace{3mm}
-
-\begin{infobox}{LightGreen}{\faBullseye\ Mục tiêu}
-
-\begin{itemize}[leftmargin=*]
-\item Không bỏ lỡ trận đấu
-\item Tìm kiếm nhanh
-\item Chất lượng phát ổn định
-\item Đồng bộ nhiều thiết bị
-\item Có highlight sau trận
-\end{itemize}
-
-\end{infobox}
-
-\columnbreak
-
-\begin{infobox}{LightRed}{\faExclamationTriangle\ Khó khăn}
-
-\begin{itemize}[leftmargin=*]
-\item Khó tìm trận đấu
-\item Lag giờ cao điểm
-\item Giao diện nhiều thông tin
-\item Quá nhiều thao tác
-\item Thiếu cá nhân hóa
-\end{itemize}
-
-\end{infobox}
-
-\vspace{3mm}
-
-\begin{infobox}{LightGray}{\faLaptop\ Hành vi}
-
-\begin{itemize}[leftmargin=*]
-\item Dùng laptop hằng ngày
-\item Xem bóng đá 2–4 giờ/ngày
-\item Thành thạo công nghệ
-\item Theo dõi nhiều giải đấu
-\item Vừa học vừa xem
-\end{itemize}
-
-\end{infobox}
-
-\end{multicols}
-
-\vspace{0.4cm}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\begin{tcolorbox}[
-colback=LightGray,
-colframe=LightGray,
-arc=3mm,
-title=\Large\bfseries\faBook\color{black} Persona Story]
-
-LK là sinh viên năm cuối ngành Công nghệ Thông tin và là người thường xuyên sử dụng các nền tảng streaming để theo dõi bóng đá. Do phần lớn thời gian học tập và làm việc trên laptop, LK luôn ưu tiên xem VTVPrime bằng trình duyệt để có màn hình lớn và dễ dàng làm nhiều việc cùng lúc.
-
-LK thường xem Premier League, Champions League và các trận đấu của đội tuyển Việt Nam. Ngoài VTVPrime, bạn còn sử dụng YouTube, Netflix và FPT Play nên có kỳ vọng khá cao về trải nghiệm người dùng.
-
-Đối với LK, tốc độ tải, chất lượng phát sóng và khả năng tìm kiếm trận đấu là ba yếu tố quan trọng nhất. Nếu phải mất quá nhiều thời gian để tìm trận đấu hoặc video bị giật trong giờ cao điểm, LK sẽ nhanh chóng chuyển sang nền tảng khác.
-
-\end{tcolorbox}
-
-\end{tcolorbox}
-
-\newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%% PERSONA 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{tcolorbox}[
-enhanced,
-colback=white,
-colframe=MainBlue,
-arc=5mm,
-boxrule=1.2pt,
-drop shadow,
-]
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{center}
-
-{\Huge\bfseries ĐĐ}
-
-\vspace{0.15cm}
-
-{\Large Secondary Persona}
-
-\vspace{0.3cm}
-
-\includegraphics[width=2cm]{avatar2.jpg}
-
-\end{center}
-
-\vspace{0.3cm}
-
-\begin{center}
-
-\begin{tcolorbox}[
-colback=LightBlue,
-colframe=LightBlue,
-arc=3mm,
-width=.95\textwidth]
-
-\centering
-\Large
-\textit{"Tôi không xem bóng đá thường xuyên. Tôi chỉ muốn mở VTVPrime là có thể tìm thấy ngay trận đấu mình cần xem mà không phải mất thời gian tìm kiếm."}
-
-\end{tcolorbox}
-
-\end{center}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{multicols}{2}
-
-\begin{infobox}{LightBlue}{\faUser\ Thông tin}
-
-\begin{itemize}[leftmargin=*]
-\item Tuổi: 24
-\item Nhân viên Marketing
-\item Đà Nẵng
-\item Thiết bị chính: Điện thoại Android
-\item Thiết bị phụ: Smart TV
-\item Sử dụng VTVPrime 1--2 lần/tháng
-\end{itemize}
-
-\end{infobox}
-
-\vspace{3mm}
-
-\begin{infobox}{LightGreen}{\faBullseye\ Mục tiêu}
-
-\begin{itemize}[leftmargin=*]
-\item Mở ứng dụng là xem được ngay
-\item Giao diện đơn giản
-\item Ít thao tác
-\item Có thông báo trận đấu lớn
-\item Có highlight sau trận
-\end{itemize}
-
-\end{infobox}
-
-\columnbreak
-
-\begin{infobox}{LightRed}{\faExclamationTriangle\ Pain Points}
-
-\begin{itemize}[leftmargin=*]
-\item Khó tìm trận đấu trực tiếp
-\item Ít dùng nên hay quên thao tác
-\item Giao diện nhiều nội dung
-\item Không thích đăng nhập nhiều lần
-\item Chất lượng mạng di động đôi khi không ổn định
-\end{itemize}
-
-\end{infobox}
-
-\vspace{3mm}
-
-\begin{infobox}{LightGray}{\faRunning\ Hành vi}
-
-\begin{itemize}[leftmargin=*]
-\item Thích du lịch và hoạt động ngoài trời
-\item Chạy bộ, leo núi cuối tuần
-\item Chủ yếu dùng điện thoại
-\item Chỉ xem World Cup, EURO hoặc đội tuyển Việt Nam
-\item Ít sử dụng các nền tảng Streaming
-\end{itemize}
-
-\end{infobox}
-
-\end{multicols}
-
-\vspace{0.4cm}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{tcolorbox}[
-colback=LightGray,
-colframe=LightGray,
-arc=3mm,
-title=\Large\bfseries\faBook\color{black} Persona Story]
-
-ĐĐ là một nhân viên Marketing có lối sống năng động và yêu thích các hoạt động ngoài trời. Sau giờ làm việc, cô thường dành thời gian để chạy bộ, leo núi, du lịch hoặc gặp gỡ bạn bè thay vì xem các chương trình giải trí trực tuyến.
-
-ĐĐ không phải là người thường xuyên sử dụng các nền tảng streaming. Cô chỉ mở VTVPrime khi có những sự kiện thể thao lớn như World Cup, EURO hoặc các trận đấu của đội tuyển Việt Nam. Vì vậy, mỗi lần sử dụng ứng dụng, cô mong muốn có thể tìm thấy trận đấu chỉ sau vài thao tác đơn giản mà không cần phải tìm kiếm quá lâu.
-
-Đối với ĐĐ, một ứng dụng tốt cần có giao diện trực quan, hiển thị rõ các trận đấu đang diễn ra và hoạt động ổn định trên điện thoại. Nếu ứng dụng quá phức tạp, tải chậm hoặc yêu cầu nhiều bước đăng nhập, cô thường chuyển sang xem trên truyền hình hoặc các nền tảng khác.
-
-\end{tcolorbox}
-
-\end{tcolorbox}
-
 \end{document}
