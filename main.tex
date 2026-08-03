@@ -1,0 +1,168 @@
+% ======================================================
+% TÀI LIỆU: Nhóm-PA2-[Tên đồ án]
+% Môn: CSC13112 - UI/UX Design
+% Nội dung: [Mô tả ngắn nội dung báo cáo PA2]
+% Tác giả: Nhóm [Tên nhóm]
+% Ngày tạo: Tháng 8/2026
+% ======================================================
+
+% --- Định dạng tài liệu ---
+% article: tài liệu ngắn (PA, báo cáo), không phân chương (chapter)
+% 12pt: cỡ chữ gốc 12pt (đọc dễ chịu trên A4)
+% a4paper: khổ giấy A4 (210mm x 297mm)
+\documentclass[12pt,a4paper]{article}
+
+% ===================== PACKAGES =====================
+% --- Gói hỗ trợ mã hóa và ngôn ngữ ---
+\usepackage[utf8]{inputenc}  % Hỗ trợ mã hóa UTF-8 (tiếng Việt, ký hiệu đặc biệt)
+\usepackage[T1]{fontenc}     % Bảng mã font T1 - hiển thị dấu tiếng Việt đúng cách
+\usepackage[vietnamese]{babel} % Hỗ trợ ngôn ngữ tiếng Việt (phân cách từ, font)
+
+% --- Gói hỗ trợ bố cục và trình bày ---
+\usepackage{graphicx}   % Chèn ảnh (\includegraphics)
+\usepackage{booktabs}   % Bảng đẹp hơn với \toprule, \midrule, \bottomrule
+\usepackage{tabularx}   % Bảng tự động giãn cột theo \textwidth (cột X co giãn)
+\usepackage{hyperref}   % Liên kết siêu văn bản (\url, \href), đánh số chương mục
+\usepackage{enumitem}   % Tùy chỉnh danh sách (enumerate, itemize) - spacing, bullet style
+\usepackage{geometry}   % Đặt lề trang (left, right, top, bottom)
+\usepackage{xcolor}     % Hỗ trợ màu sắc (dùng trong hyperref, text color)
+\usepackage{titlesec}   % Tùy chỉnh định dạng tiêu đề section
+\usepackage{fancyhdr}   % Header/footer tùy chỉnh (trang tiêu, trang cuối)
+\usepackage{amssymb}    % Ký hiệu toán học mở rộng
+\usepackage[page,toc]{appendix} % Hỗ trợ appendix với environment appendices
+\usepackage{pifont}     % Ký hiệu tròn số (\ding{172}=①, \ding{173}=②, \ding{174}=③)
+\usepackage{pgfplots}   % Vẽ biểu đồ (charts)
+\pgfplotsset{compat=1.18} % Phiên bản pgfplots
+\usepackage{tikz}       % Vẽ đồ họa (cho trang bìa)
+\usepackage{tcolorbox}   % Hộp màu (cho trang bìa)
+
+% --- Thiết lập lề trang ---
+% Lề 2.5cm các cạnh: chuẩn cho báo cáo học thuật A4
+% left/right: lề trái/phải | top/bottom: lề trên/dưới
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+
+% --- Fix fancyhdr: headheight phải đủ lớn cho header ---
+\setlength{\headheight}{15pt}  % Mặc định 12pt quá nhỏ, fancyhdr yêu cầu ≥ 14.93912pt
+
+% --- Cài đặt hyperlink ---
+% colorlinks=true: bật màu cho liên kết (thay vì khung viền)
+% linkcolor: màu liên kết nội bộ (mục lục, section)
+% urlcolor: màu liên kết URL bên ngoài
+% citecolor: màu trích dẫn tài liệu tham khảo
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,   % Xanh đậm
+    urlcolor=blue,   % Đồng bộ với linkcolor
+    citecolor=black            % Trích dẫn màu đen (trang trọng)
+}
+
+% ===================== HEADER / FOOTER =====================
+% fancyhdr: tạo header/footer tùy chỉnh cho tất cả trang
+\pagestyle{fancy}         % Kích hoạt chế độ fancy page style
+\fancyhf{}                % Xóa tất cả header/footer mặc định
+\fancyfoot[C]{\thepage}   % Số trang ở chính giữa footer
+% Header
+\fancyhead[L]{[MSSV] - [Họ tên]} % Trái
+\fancyhead[C]{} % Giữa
+\fancyhead[R]{[Lớp]} % Phải
+\renewcommand{\headrulewidth}{0.4pt}           % Đường kẻ ngang dưới header (0.4pt mảnh)
+
+% ===================== TITLE (TIÊU ĐỀ) =====================
+% \title: tiêu đề chính của tài liệu
+\title{\textbf{Project Assignment 2}}
+
+% --- Định dạng tiêu đề section ---
+\titleformat{\section}
+{\normalfont\large\bfseries}
+{\thesection}{1em}{}
+
+% --- Định dạng tiêu đề phần (trước appendix) ---
+\titleformat{\section}{\Large\bfseries}{Part \Roman{section}.}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{1em}{}
+
+% --- Cài đặt paragraph ---
+\setlength{\parindent}{0pt}
+\renewcommand{\contentsname}{Table of contents}
+
+% ======================================================
+% BẮT ĐẦU NỘI DUNG TÀI LIỆU
+% ======================================================
+\begin{document}        % Bắt đầu nội dung tài liệu
+
+% ------------ TRANG BÌA -------------
+\begin{titlepage}
+\begin{tikzpicture}[remember picture,overlay,inner sep=0,outer sep=0]
+     \draw[blue!70!black,line width=4pt] ([xshift=-1.5cm,yshift=-2cm]current page.north east) coordinate (A)--([xshift=1.5cm,yshift=-2cm]current page.north west) coordinate(B)--([xshift=1.5cm,yshift=2cm]current page.south west) coordinate (C)--([xshift=-1.5cm,yshift=2cm]current page.south east) coordinate(D)--cycle;
+
+     \draw ([yshift=0.5cm,xshift=-0.5cm]A)-- ([yshift=0.5cm,xshift=0.5cm]B)--
+     ([yshift=-0.5cm,xshift=0.5cm]B) --([yshift=-0.5cm,xshift=-0.5cm]B)--([yshift=0.5cm,xshift=-0.5cm]C)--([yshift=0.5cm,xshift=0.5cm]C)--([yshift=-0.5cm,xshift=0.5cm]C)-- ([yshift=-0.5cm,xshift=-0.5cm]D)--([yshift=0.5cm,xshift=-0.5cm]D)--([yshift=0.5cm,xshift=0.5cm]D)--([yshift=-0.3cm,xshift=0.5cm]A)--([yshift=-0.3cm,xshift=-0.5cm]A)--([yshift=0.5cm,xshift=-0.5cm]A);
+
+
+     \draw ([yshift=-0.3cm,xshift=0.3cm]A)-- ([yshift=-0.3cm,xshift=-0.3cm]B)--
+     ([yshift=0.3cm,xshift=-0.3cm]B) --([yshift=0.3cm,xshift=0.3cm]B)--([yshift=-0.3cm,xshift=0.3cm]C)--([yshift=-0.3cm,xshift=-0.3cm]C)--([yshift=0.3cm,xshift=-0.3cm]C)-- ([yshift=0.3cm,xshift=0.3cm]D)--([yshift=0.3cm,xshift=0.3cm]D)--([yshift=-0.3cm,xshift=-0.3cm]D)--([yshift=0.3cm,xshift=-0.3cm]A)--([yshift=0.3cm,xshift=0.3cm]A)--([yshift=-0.3cm,xshift=0.3cm]A);
+
+\end{tikzpicture}
+\vspace*{1cm}
+\begin{center}
+    \makebox[\textwidth][c]{\large\bfseries ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH}\\[4pt]
+    \makebox[\textwidth][c]{\large\bfseries TRƯỜNG ĐẠI HỌC KHOA HỌC TỰ NHIÊN - VNUHCM}\\[4pt]
+    \makebox[\textwidth][c]{\large\bfseries KHOA CÔNG NGHỆ THÔNG TIN}\\[1cm]
+    
+
+    \includegraphics[scale=0.15]{Logo-Dai-hoc-Khoa-hoc-Tu-nhien.png}\\[0.8cm]
+    % Môn học
+    {\large\bfseries THIẾT KẾ GIAO DIỆN}
+
+    \vspace{6pt}
+
+    {\large Lớp: \textbf{[Tên lớp]}}
+    
+    \vspace{10pt}
+    
+    % Tiêu đề đồ án (một dòng, màu, to, căn giữa)
+    \makebox[\textwidth][c]{\large\bfseries \color{black!70!black}[TIÊU ĐỀ ĐỒ ÁN - PA2]}
+    
+    \vspace{1.5cm}
+
+    % Giáo viên box
+    \begin{tcolorbox}[colback=blue!5!white, colframe=blue!50!black, width=0.9\textwidth, boxrule=0.8pt, arc=3pt, left=8pt, right=8pt]
+        \textbf{[Chức danh]: [Tên giảng viên]}\\
+        \textbf{[Chức danh]: [Tên giảng viên]}\\
+        \textbf{[Chức danh]: [Tên giảng viên]}
+    \end{tcolorbox}
+    \vspace{1cm}
+
+    % Sinh viên box
+    \begin{tcolorbox}[colback=gray!10!white, colframe=gray!60!black, width=0.9\textwidth, boxrule=0.8pt, arc=3pt, left=8pt, right=8pt]
+        \textbf{Sinh viên thực hiện:} \\
+        {\textbf{[Họ tên]}} -- MSSV: {[MSSV]} \\ 
+        {\textbf{[Họ tên]}} -- MSSV: {[MSSV]} \\
+        {\textbf{[Họ tên]}} -- MSSV: {[MSSV]} \\
+        {\textbf{[Họ tên]}} -- MSSV: {[MSSV]}
+        
+    \end{tcolorbox}
+
+    \vfill
+    {\large\textbf{HO CHI MINH CITY, 2026}}
+\end{center}
+\end{titlepage}
+
+
+\tableofcontents        % Tự động tạo mục lục từ các \section, \subsection
+\newpage                % Ngắt trang - mục lục ở trang riêng
+
+% ======================================================
+%          BIBLIOGRAPHY
+% ======================================================
+\bibliographystyle{plain}
+\bibliography{references}
+
+% % ======================================================
+% %          PHỤ LỤC
+% % ======================================================
+% \newpage
+% \appendix
+% \appendixpage
+% \addappheadtotoc
+
+\end{document}
