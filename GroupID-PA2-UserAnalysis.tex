@@ -1,113 +1,199 @@
-% ======================================================
-% TÀI LIỆU: Nhóm-PA2-[Tên đồ án]
-% Môn: CSC13112 - UI/UX Design
-% Nội dung: [Mô tả ngắn nội dung báo cáo PA2]
-% Tác giả: Nhóm [Tên nhóm]
-% Ngày tạo: Tháng 8/2026
-% ======================================================
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{vietnam}
+\usepackage[left=3.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{amsmath,graphicx,booktabs,tabularx}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\usepackage{tocloft}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{forest}
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage[vietnamese,english]{babel}
+\usepackage{titlesec}
 
-% --- Định dạng tài liệu ---
-% article: tài liệu ngắn (PA, báo cáo), không phân chương (chapter)
-% 12pt: cỡ chữ gốc 12pt (đọc dễ chịu trên A4)
-% a4paper: khổ giấy A4 (210mm x 297mm)
-\documentclass[12pt,a4paper]{article}
-
-% ===================== PACKAGES =====================
-% --- Gói hỗ trợ mã hóa và ngôn ngữ ---
-\usepackage[utf8]{inputenc}  % Hỗ trợ mã hóa UTF-8 (tiếng Việt, ký hiệu đặc biệt)
-\usepackage[T1]{fontenc}     % Bảng mã font T1 - hiển thị dấu tiếng Việt đúng cách
-\usepackage[vietnamese]{babel} % Hỗ trợ ngôn ngữ tiếng Việt (phân cách từ, font)
-
-% --- Gói hỗ trợ bố cục và trình bày ---
-\usepackage{graphicx}   % Chèn ảnh (\includegraphics)
-\usepackage{booktabs}   % Bảng đẹp hơn với \toprule, \midrule, \bottomrule
-\usepackage{tabularx}   % Bảng tự động giãn cột theo \textwidth (cột X co giãn)
-\usepackage{hyperref}   % Liên kết siêu văn bản (\url, \href), đánh số chương mục
-\usepackage{enumitem}   % Tùy chỉnh danh sách (enumerate, itemize) - spacing, bullet style
-\usepackage{geometry}   % Đặt lề trang (left, right, top, bottom)
-\usepackage{xcolor}     % Hỗ trợ màu sắc (dùng trong hyperref, text color)
-\usepackage{titlesec}   % Tùy chỉnh định dạng tiêu đề section
-\usepackage{fancyhdr}   % Header/footer tùy chỉnh (trang tiêu, trang cuối)
-\usepackage{amssymb}    % Ký hiệu toán học mở rộng
-\usepackage[page,toc]{appendix} % Hỗ trợ appendix với environment appendices
-\usepackage{pifont}     % Ký hiệu tròn số (\ding{172}=①, \ding{173}=②, \ding{174}=③)
-\usepackage{pgfplots}   % Vẽ biểu đồ (charts)
-\pgfplotsset{compat=1.18} % Phiên bản pgfplots
-\usepackage{tikz}       % Vẽ đồ họa (cho trang bìa)
-\usepackage{tcolorbox}   % Hộp màu (cho trang bìa)
-
-% --- Thiết lập lề trang ---
-% Lề 2.5cm các cạnh: chuẩn cho báo cáo học thuật A4
-% left/right: lề trái/phải | top/bottom: lề trên/dưới
-\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
-
-% --- Fix fancyhdr: headheight phải đủ lớn cho header ---
-\setlength{\headheight}{15pt}  % Mặc định 12pt quá nhỏ, fancyhdr yêu cầu ≥ 14.93912pt
-
-% --- Cài đặt hyperlink ---
-% colorlinks=true: bật màu cho liên kết (thay vì khung viền)
-% linkcolor: màu liên kết nội bộ (mục lục, section)
-% urlcolor: màu liên kết URL bên ngoài
-% citecolor: màu trích dẫn tài liệu tham khảo
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,   % Xanh đậm
-    urlcolor=blue,   % Đồng bộ với linkcolor
-    citecolor=black            % Trích dẫn màu đen (trang trọng)
-}
-
-% ===================== HEADER / FOOTER =====================
-% fancyhdr: tạo header/footer tùy chỉnh cho tất cả trang
-\pagestyle{fancy}         % Kích hoạt chế độ fancy page style
-\fancyhf{}                % Xóa tất cả header/footer mặc định
-\fancyfoot[C]{\thepage}   % Số trang ở chính giữa footer
-% Header
-\fancyhead[L]{[MSSV] - [Họ tên]} % Trái
-\fancyhead[C]{} % Giữa
-\fancyhead[R]{[Lớp]} % Phải
-\renewcommand{\headrulewidth}{0.4pt}           % Đường kẻ ngang dưới header (0.4pt mảnh)
-
-% ===================== TITLE (TIÊU ĐỀ) =====================
-% \title: tiêu đề chính của tài liệu
-\title{\textbf{Project Assignment 2}}
-
-% --- Định dạng tiêu đề section ---
 \titleformat{\section}
 {\normalfont\large\bfseries}
 {\thesection}{1em}{}
 
-% --- Định dạng tiêu đề phần (trước appendix) ---
+\pagestyle{fancy}
+\fancyhf{} % Xóa header và footer mặc định
+\fancyfoot[C]{\thepage} % Số trang ở chính giữa footer
+% Header
+\fancyhead[L]{23127068 - Huỳnh Lê Khôi} % Trái
+\fancyhead[C]{} % Giữa
+\fancyhead[R]{23CLC} % Phải
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue
+}
+
+\setlength{\parindent}{0pt}
+\renewcommand{\contentsname}{Table of contents}
 \titleformat{\section}{\Large\bfseries}{Part \Roman{section}.}{1em}{}
 \titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{1em}{}
 
-% --- Cài đặt paragraph ---
-\setlength{\parindent}{0pt}
-\renewcommand{\contentsname}{Table of contents}
+\begin{document}
 
-% ======================================================
-% BẮT ĐẦU NỘI DUNG TÀI LIỆU
-% ======================================================
-\begin{document}        % Bắt đầu nội dung tài liệu
+\section{Requirement 1: User Research \& Analysis}
 
-% ------------ TRANG BÌA -------------
-\input{sections/cover.tex}
+\subsection{Mục tiêu nghiên cứu}
 
+Mục tiêu của quá trình nghiên cứu người dùng là tìm hiểu nhu cầu, hành vi, khó khăn và mong muốn của người dùng trong quá trình sử dụng hệ thống. Nhóm sử dụng nhiều phương pháp khác nhau nhằm thu thập dữ liệu từ nhiều góc nhìn để đảm bảo tính khách quan và độ tin cậy của kết quả nghiên cứu.
 
-\tableofcontents        % Tự động tạo mục lục từ các \section, \subsection
-\newpage                % Ngắt trang - mục lục ở trang riêng
+Tổng cộng nhóm đã khảo sát \textbf{8 người tham gia} thông qua ba phương pháp:
 
-% ======================================================
-%          BIBLIOGRAPHY
-% ======================================================
-\bibliographystyle{plain}
-\bibliography{references}
+\begin{itemize}
+    \item Google Form: 4 người
+    \item Phỏng vấn trực tuyến qua Google Meet: 2 người
+    \item Phỏng vấn trực tiếp: 2 người
+\end{itemize}
 
-% % ======================================================
-% %          PHỤ LỤC
-% % ======================================================
-% \newpage
-% \appendix
-% \appendixpage
-% \addappheadtotoc
+\subsection{Phương pháp 1: Khảo sát bằng Google Form}
 
-\end{document}
+Nhóm xây dựng một bảng khảo sát trực tuyến bằng Google Form để thu thập dữ liệu ban đầu về:
+
+\begin{itemize}
+    \item Thông tin cá nhân cơ bản
+    \item Thói quen sử dụng
+    \item Những khó khăn thường gặp
+    \item Mong muốn đối với hệ thống
+\end{itemize}
+
+Có tổng cộng \textbf{4 người} tham gia khảo sát. Mỗi người mất khoảng \textbf{5--10 phút} để hoàn thành biểu mẫu. Dữ liệu được lưu tự động trên Google Sheets để phục vụ quá trình phân tích.
+
+\subsubsection*{Danh sách người tham gia}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|p{4cm}|c|p{4cm}|}
+\hline
+\textbf{STT} & \textbf{Họ và tên} & \textbf{Độ tuổi} & \textbf{Ngành nghề hiện tại} \\
+\hline
+1 & & & \\
+\hline
+2 & & & \\
+\hline
+3 & & & \\
+\hline
+4 & & & \\
+\hline
+\end{tabular}
+\caption{Danh sách người tham gia khảo sát Google Form}
+\end{table}
+
+\vspace{0.5cm}
+
+\textbf{Hình minh họa Google Form}
+
+\vspace{5cm}
+
+% Chèn hình:
+% \includegraphics[width=0.8\textwidth]{images/google_form.png}
+
+\newpage
+
+\subsection{Phương pháp 2: Phỏng vấn trực tuyến qua Google Meet}
+
+Sau khi thu thập dữ liệu từ Google Form, nhóm lựa chọn hai người để thực hiện phỏng vấn chuyên sâu thông qua Google Meet nhằm hiểu rõ hơn về:
+
+\begin{itemize}
+    \item Quy trình thực hiện công việc
+    \item Những khó khăn thường gặp
+    \item Mức độ hài lòng với các giải pháp hiện tại
+    \item Mong muốn cải thiện hệ thống
+\end{itemize}
+
+Có tổng cộng \textbf{2 người} tham gia. Mỗi buổi phỏng vấn kéo dài khoảng \textbf{20--30 phút}. Các buổi phỏng vấn được ghi chú và ghi âm (được sự đồng ý của người tham gia) để phục vụ phân tích.
+
+\subsubsection*{Danh sách người tham gia}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|p{4cm}|c|p{4cm}|}
+\hline
+\textbf{STT} & \textbf{Họ và tên} & \textbf{Độ tuổi} & \textbf{Ngành nghề hiện tại} \\
+\hline
+1 & & & \\
+\hline
+2 & & & \\
+\hline
+\end{tabular}
+\caption{Danh sách người tham gia phỏng vấn Google Meet}
+\end{table}
+
+\vspace{0.5cm}
+
+\textbf{Hình minh họa buổi phỏng vấn}
+
+\vspace{5cm}
+
+% \includegraphics[width=0.8\textwidth]{images/meet_interview.png}
+
+\newpage
+
+\subsection{Phương pháp 3: Phỏng vấn trực tiếp}
+
+Để quan sát thêm về hành vi và cách người dùng tương tác trong môi trường thực tế, nhóm tiến hành phỏng vấn trực tiếp với hai người dùng.
+
+Buổi phỏng vấn tập trung vào:
+
+\begin{itemize}
+    \item Quan sát cách thực hiện công việc
+    \item Những khó khăn phát sinh trong thực tế
+    \item Các công cụ đang sử dụng
+    \item Những đề xuất cải thiện
+\end{itemize}
+
+Có tổng cộng \textbf{2 người} tham gia. Mỗi buổi kéo dài khoảng \textbf{25--35 phút}. Dữ liệu được ghi chép kết hợp với hình ảnh minh họa (được người tham gia đồng ý).
+
+\subsubsection*{Danh sách người tham gia}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|p{4cm}|c|p{4cm}|}
+\hline
+\textbf{STT} & \textbf{Họ và tên} & \textbf{Độ tuổi} & \textbf{Ngành nghề hiện tại} \\
+\hline
+1 & & & \\
+\hline
+2 & & & \\
+\hline
+\end{tabular}
+\caption{Danh sách người tham gia phỏng vấn trực tiếp}
+\end{table}
+
+\vspace{0.5cm}
+
+\textbf{Hình minh họa buổi phỏng vấn trực tiếp}
+
+\vspace{5cm}
+
+% \includegraphics[width=0.8\textwidth]{images/interview_direct.jpg}
+
+\newpage
+
+\subsection{Tóm tắt quá trình nghiên cứu}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|c|c|p{5cm}|}
+\hline
+\textbf{Phương pháp} & \textbf{Số người} & \textbf{Thời lượng} & \textbf{Cách ghi nhận dữ liệu} \\
+\hline
+Google Form & 4 & 5--10 phút & Google Sheets \\
+\hline
+Google Meet & 2 & 20--30 phút & Ghi chú + ghi âm \\
+\hline
+Phỏng vấn trực tiếp & 2 & 25--35 phút & Ghi chú + hình ảnh \\
+\hline
+\end{tabular}
+\caption{Tổng kết các phương pháp nghiên cứu người dùng}
+\end{table}
