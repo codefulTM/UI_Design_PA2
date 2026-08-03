@@ -42,10 +42,66 @@
 
 \begin{document}
 
-\section{Requirement 1: User Research \& Analysis}
+% ------------ TRANG BÌA -------------
+\begin{titlepage}
+\begin{tikzpicture}[remember picture,overlay,inner sep=0,outer sep=0]
+     \draw[blue!70!black,line width=4pt] ([xshift=-1.5cm,yshift=-2cm]current page.north east) coordinate (A)--([xshift=1.5cm,yshift=-2cm]current page.north west) coordinate(B)--([xshift=1.5cm,yshift=2cm]current page.south west) coordinate (C)--([xshift=-1.5cm,yshift=2cm]current page.south east) coordinate(D)--cycle;
 
-\subsection{Mục tiêu nghiên cứu}
+     \draw ([yshift=0.5cm,xshift=-0.5cm]A)-- ([yshift=0.5cm,xshift=0.5cm]B)--
+     ([yshift=-0.5cm,xshift=0.5cm]B) --([yshift=-0.5cm,xshift=-0.5cm]B)--([yshift=0.5cm,xshift=-0.5cm]C)--([yshift=0.5cm,xshift=0.5cm]C)--([yshift=-0.5cm,xshift=0.5cm]C)-- ([yshift=-0.5cm,xshift=-0.5cm]D)--([yshift=0.5cm,xshift=-0.5cm]D)--([yshift=0.5cm,xshift=0.5cm]D)--([yshift=-0.5cm,xshift=0.5cm]A)--([yshift=-0.5cm,xshift=-0.5cm]A)--([yshift=0.5cm,xshift=-0.5cm]A);
 
+
+     \draw ([yshift=-0.3cm,xshift=0.3cm]A)-- ([yshift=-0.3cm,xshift=-0.3cm]B)--
+     ([yshift=0.3cm,xshift=-0.3cm]B) --([yshift=0.3cm,xshift=0.3cm]B)--([yshift=-0.3cm,xshift=0.3cm]C)--([yshift=-0.3cm,xshift=-0.3cm]C)--([yshift=0.3cm,xshift=-0.3cm]C)-- ([yshift=0.3cm,xshift=0.3cm]D)--([yshift=-0.3cm,xshift=0.3cm]D)--([yshift=-0.3cm,xshift=-0.3cm]D)--([yshift=0.3cm,xshift=-0.3cm]A)--([yshift=0.3cm,xshift=0.3cm]A)--([yshift=-0.3cm,xshift=0.3cm]A);
+
+\end{tikzpicture}
+\vspace*{1cm}
+\begin{center}
+    \makebox[\textwidth][c]{\large\bfseries ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH}\\[4pt]
+    \makebox[\textwidth][c]{\large\bfseries TRƯỜNG ĐẠI HỌC KHOA HỌC TỰ NHIÊN - VNUHCM}\\[4pt]
+    \makebox[\textwidth][c]{\large\bfseries KHOA CÔNG NGHỆ THÔNG TIN}\\[1cm]
+    
+
+    \includegraphics[scale=0.15]{logo.jpg}\\[0.8cm]
+    % Môn học
+    {\large\bfseries THIẾT KẾ GIAO DIỆN}
+
+    \vspace{6pt}
+
+    {\large Lớp: \textbf{23KTPM2}}
+    
+    \vspace{10pt}
+    
+    % Tiêu đề đồ án (một dòng, màu, to, căn giữa)
+    \makebox[\textwidth][c]{\large\bfseries \color{black!70!black}USER ANALYSIS - PA2}
+    
+    \vspace{1.5cm}
+
+    % Giáo viên box
+    \begin{tcolorbox}[colback=blue!5!white, colframe=blue!50!black, width=0.9\textwidth, boxrule=0.8pt, arc=3pt, left=8pt, right=8pt]
+        \textbf{Thầy: Lê Khánh Duy}\\
+        \textbf{Thầy: Nguyễn Huy Khánh}\\
+        \textbf{Thầy: Phạm Nguyễn Sơn Tùng}
+    \end{tcolorbox}
+    \vspace{1cm}
+
+    % Sinh viên box
+    \begin{tcolorbox}[colback=gray!10!white, colframe=gray!60!black, width=0.9\textwidth, boxrule=0.8pt, arc=3pt, left=8pt, right=8pt]
+        \textbf{Sinh viên thực hiện:} \\
+        Huỳnh Lê Khôi -- MSSV: 23127068 \\ 
+        Bùi Đức Đạt -- MSSV: 23127337 \\
+        Phan Thị Hương Xuân -- MSSV: 23127147 \\
+        Nguyễn Tuấn Minh -- MSSV: 22127271 \\
+        Nguyễn Hồng Phúc - MSSV: 23127333
+        
+    \end{tcolorbox}
+
+    \vfill
+    {\large\textbf{HO CHI MINH CITY, 2026}}
+\end{center}
+\end{titlepage}
+\newpage
+\section*{Phương pháp nghiên cứu}
 Mục tiêu của quá trình nghiên cứu người dùng là tìm hiểu nhu cầu, hành vi, khó khăn và mong muốn của người dùng trong quá trình sử dụng hệ thống. Nhóm sử dụng nhiều phương pháp khác nhau nhằm thu thập dữ liệu từ nhiều góc nhìn để đảm bảo tính khách quan và độ tin cậy của kết quả nghiên cứu.
 
 Tổng cộng nhóm đã khảo sát \textbf{8 người tham gia} thông qua ba phương pháp:
@@ -197,3 +253,5 @@ Phỏng vấn trực tiếp & 2 & 25--35 phút & Ghi chú + hình ảnh \\
 \end{tabular}
 \caption{Tổng kết các phương pháp nghiên cứu người dùng}
 \end{table}
+
+\end{document}
