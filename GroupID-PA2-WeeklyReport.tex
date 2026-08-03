@@ -1,113 +1,1057 @@
-% ======================================================
-% TÀI LIỆU: Nhóm-PA2-[Tên đồ án]
-% Môn: CSC13112 - UI/UX Design
-% Nội dung: [Mô tả ngắn nội dung báo cáo PA2]
-% Tác giả: Nhóm [Tên nhóm]
-% Ngày tạo: Tháng 8/2026
-% ======================================================
+\documentclass[11pt,a4paper]{article}
 
-% --- Định dạng tài liệu ---
-% article: tài liệu ngắn (PA, báo cáo), không phân chương (chapter)
-% 12pt: cỡ chữ gốc 12pt (đọc dễ chịu trên A4)
-% a4paper: khổ giấy A4 (210mm x 297mm)
-\documentclass[12pt,a4paper]{article}
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage[vietnamese]{babel}
 
-% ===================== PACKAGES =====================
-% --- Gói hỗ trợ mã hóa và ngôn ngữ ---
-\usepackage[utf8]{inputenc}  % Hỗ trợ mã hóa UTF-8 (tiếng Việt, ký hiệu đặc biệt)
-\usepackage[T1]{fontenc}     % Bảng mã font T1 - hiển thị dấu tiếng Việt đúng cách
-\usepackage[vietnamese]{babel} % Hỗ trợ ngôn ngữ tiếng Việt (phân cách từ, font)
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\usepackage{titlesec}
+\usepackage{hyperref}
 
-% --- Gói hỗ trợ bố cục và trình bày ---
-\usepackage{graphicx}   % Chèn ảnh (\includegraphics)
-\usepackage{booktabs}   % Bảng đẹp hơn với \toprule, \midrule, \bottomrule
-\usepackage{tabularx}   % Bảng tự động giãn cột theo \textwidth (cột X co giãn)
-\usepackage{hyperref}   % Liên kết siêu văn bản (\url, \href), đánh số chương mục
-\usepackage{enumitem}   % Tùy chỉnh danh sách (enumerate, itemize) - spacing, bullet style
-\usepackage{geometry}   % Đặt lề trang (left, right, top, bottom)
-\usepackage{xcolor}     % Hỗ trợ màu sắc (dùng trong hyperref, text color)
-\usepackage{titlesec}   % Tùy chỉnh định dạng tiêu đề section
-\usepackage{fancyhdr}   % Header/footer tùy chỉnh (trang tiêu, trang cuối)
-\usepackage{amssymb}    % Ký hiệu toán học mở rộng
-\usepackage[page,toc]{appendix} % Hỗ trợ appendix với environment appendices
-\usepackage{pifont}     % Ký hiệu tròn số (\ding{172}=①, \ding{173}=②, \ding{174}=③)
-\usepackage{pgfplots}   % Vẽ biểu đồ (charts)
-\pgfplotsset{compat=1.18} % Phiên bản pgfplots
-\usepackage{tikz}       % Vẽ đồ họa (cho trang bìa)
-\usepackage{tcolorbox}   % Hộp màu (cho trang bìa)
-
-% --- Thiết lập lề trang ---
-% Lề 2.5cm các cạnh: chuẩn cho báo cáo học thuật A4
-% left/right: lề trái/phải | top/bottom: lề trên/dưới
-\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
-
-% --- Fix fancyhdr: headheight phải đủ lớn cho header ---
-\setlength{\headheight}{15pt}  % Mặc định 12pt quá nhỏ, fancyhdr yêu cầu ≥ 14.93912pt
-
-% --- Cài đặt hyperlink ---
-% colorlinks=true: bật màu cho liên kết (thay vì khung viền)
-% linkcolor: màu liên kết nội bộ (mục lục, section)
-% urlcolor: màu liên kết URL bên ngoài
-% citecolor: màu trích dẫn tài liệu tham khảo
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,   % Xanh đậm
-    urlcolor=blue,   % Đồng bộ với linkcolor
-    citecolor=black            % Trích dẫn màu đen (trang trọng)
-}
-
-% ===================== HEADER / FOOTER =====================
-% fancyhdr: tạo header/footer tùy chỉnh cho tất cả trang
-\pagestyle{fancy}         % Kích hoạt chế độ fancy page style
-\fancyhf{}                % Xóa tất cả header/footer mặc định
-\fancyfoot[C]{\thepage}   % Số trang ở chính giữa footer
-% Header
-\fancyhead[L]{[MSSV] - [Họ tên]} % Trái
-\fancyhead[C]{} % Giữa
-\fancyhead[R]{[Lớp]} % Phải
-\renewcommand{\headrulewidth}{0.4pt}           % Đường kẻ ngang dưới header (0.4pt mảnh)
-
-% ===================== TITLE (TIÊU ĐỀ) =====================
-% \title: tiêu đề chính của tài liệu
-\title{\textbf{Project Assignment 2}}
-
-% --- Định dạng tiêu đề section ---
-\titleformat{\section}
-{\normalfont\large\bfseries}
-{\thesection}{1em}{}
-
-% --- Định dạng tiêu đề phần (trước appendix) ---
-\titleformat{\section}{\Large\bfseries}{Part \Roman{section}.}{1em}{}
-\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{1em}{}
-
-% --- Cài đặt paragraph ---
 \setlength{\parindent}{0pt}
-\renewcommand{\contentsname}{Table of contents}
+\setlength{\parskip}{0.4em}
+\renewcommand{\arraystretch}{1.4}
 
-% ======================================================
-% BẮT ĐẦU NỘI DUNG TÀI LIỆU
-% ======================================================
-\begin{document}        % Bắt đầu nội dung tài liệu
+\titleformat{\section}
+{\Large\bfseries}
+{}
+{0pt}
+{}
 
-% ------------ TRANG BÌA -------------
-\input{sections/cover.tex}
+\titleformat{\subsection}
+{\large\bfseries}
+{}
+{0pt}
+{}
 
+\begin{document}
+\begin{center}
+    {\Huge\bfseries BIÊN BẢN HỌP HẰNG TUẦN}
 
-\tableofcontents        % Tự động tạo mục lục từ các \section, \subsection
-\newpage                % Ngắt trang - mục lục ở trang riêng
+    \vspace{0.2cm}
 
-% ======================================================
-%          BIBLIOGRAPHY
-% ======================================================
-\bibliographystyle{plain}
-\bibliography{references}
+    {\Large Đồ án môn học: Thiết kế giao diện}
+\end{center}
 
-% % ======================================================
-% %          PHỤ LỤC
-% % ======================================================
-% \newpage
-% \appendix
-% \appendixpage
-% \addappheadtotoc
+\vspace{0.8cm}
+
+\begin{tabularx}{\textwidth}{|>{\bfseries}p{4cm}|X|}
+\hline
+Sprint & Sprint 2 \\ \hline
+Cuộc họp & Tuần 3 (10/07/2026 -- 16/07/2026) \\ \hline
+Ngày họp & 10/07/2026 \\ \hline
+Thời gian & 20:00 -- 21:00 \\ \hline
+Hình thức & Google Meet \\ \hline
+Người điều phối & 23127068 - Huỳnh Lê Khôi \\ \hline
+Thành viên &
+23127068 - Huỳnh Lê Khôi\\
+&
+23127337 - Bùi Đức Đạt\\
+&
+23127147 - Phan Thị Hương Xuân\\
+&
+22127271 - Nguyễn Tuấn Minh\\
+&
+22127333 - Nguyễn Hồng Phúc\\
+\hline
+\end{tabularx}
+
+\vspace{0.8cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{1. Thành viên tham dự}
+
+\begin{tabularx}{\textwidth}{|p{4cm}|X|}
+\hline
+\rowcolor{gray!20}
+\textbf{Trạng thái} & \textbf{Danh sách}\\
+\hline
+Có mặt &
+23127068 - Huỳnh Lê Khôi\\
+&
+23127337 - Bùi Đức Đạt\\
+&
+23127147 - Phan Thị Hương Xuân\\
+&
+22127271 - Nguyễn Tuấn Minh\\
+&
+22127333 - Nguyễn Hồng Phúc\\
+\hline
+Vắng mặt & Không\\
+\hline
+\end{tabularx}
+
+\vspace{0.8cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{2. Nội dung buổi họp}
+
+\begin{enumerate}
+    \item Giới thiệu nội dung của PA2 và thống nhất kế hoạch thực hiện giai đoạn User Research.
+
+    \item Thảo luận các phương pháp nghiên cứu người dùng, bao gồm phỏng vấn trực tiếp, phỏng vấn trực tuyến thông qua Google Meet và khảo sát bằng Google Form.
+
+    \item Thống nhất đối tượng khảo sát là những người thường xuyên theo dõi các nội dung thể thao trên các nền tảng phát trực tuyến như VTV Prime và FPT Play.
+
+    \item Phân chia nhiệm vụ thực hiện phỏng vấn, khảo sát và tổng hợp dữ liệu cho từng thành viên.
+
+    \item Thảo luận các ý tưởng ban đầu về Use Case và thống nhất thời hạn hoàn thành User Research trong tuần tiếp theo.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{3. Báo cáo tiến độ}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Bùi Đức Đạt}
+
+\begin{tabularx}{\textwidth}{|p{4cm}|X|}
+\hline
+\textbf{Đã hoàn thành} &
+• Tham gia xây dựng bộ câu hỏi phỏng vấn dành cho người dùng xem video thể thao.\\
+&
+• Chuẩn bị kế hoạch phỏng vấn trực tuyến thông qua Google Meet với hai người tham gia khảo sát.\\
+&
+• Thảo luận và thống nhất nội dung User Research cùng các thành viên.\\
+\hline
+
+\textbf{Sẽ thực hiện} &
+• Tiến hành phỏng vấn Google Meet và tổng hợp kết quả phục vụ User Analysis.\\
+\hline
+
+\textbf{Khó khăn} &
+Không.\\
+\hline
+\end{tabularx}
+
+\vspace{0.6cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Huỳnh Lê Khôi}
+
+\begin{tabularx}{\textwidth}{|p{4cm}|X|}
+\hline
+\textbf{Đã hoàn thành} &
+• Điều phối buổi họp và xây dựng kế hoạch thực hiện User Research.\\
+&
+• Chuẩn bị bộ câu hỏi phỏng vấn trực tiếp người dùng thường xuyên xem các trận đấu thể thao trực tuyến.\\
+&
+• Phân công nhiệm vụ cho từng thành viên và thống nhất tiến độ thực hiện PA2.\\
+\hline
+
+\textbf{Sẽ thực hiện} &
+• Thực hiện phỏng vấn trực tiếp hai người dùng và tổng hợp kết quả nghiên cứu.\\
+\hline
+
+\textbf{Khó khăn} &
+Không.\\
+\hline
+\end{tabularx}
+
+\vspace{0.6cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Phan Thị Hương Xuân}
+
+\begin{tabularx}{\textwidth}{|p{4cm}|X|}
+\hline
+\textbf{Đã hoàn thành} &
+• Thiết kế nội dung Google Form phục vụ khảo sát người dùng.\\
+&
+• Thảo luận các câu hỏi khảo sát nhằm thu thập thông tin về trải nghiệm xem video thể thao trực tuyến.\\
+&
+• Phối hợp cùng nhóm rà soát nội dung bảng khảo sát trước khi phát hành.\\
+\hline
+
+\textbf{Sẽ thực hiện} &
+• Phát hành Google Form và thu thập phản hồi từ người tham gia khảo sát.\\
+\hline
+
+\textbf{Khó khăn} &
+Không.\\
+\hline
+\end{tabularx}
+
+\vspace{0.6cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Nguyễn Tuấn Minh}
+
+\begin{tabularx}{\textwidth}{|p{4cm}|X|}
+\hline
+\textbf{Đã hoàn thành} &
+• Góp ý và hoàn thiện nội dung Google Form.\\
+&
+• Thảo luận tiêu chí lựa chọn đối tượng khảo sát phù hợp với đề tài.\\
+&
+• Chuẩn bị kế hoạch tổng hợp dữ liệu khảo sát sau khi thu thập.\\
+\hline
+
+\textbf{Sẽ thực hiện} &
+• Hỗ trợ thu thập phản hồi từ Google Form và chuẩn bị dữ liệu cho bước User Analysis.\\
+\hline
+
+\textbf{Khó khăn} &
+Không.\\
+\hline
+\end{tabularx}
+
+\vspace{0.6cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Nguyễn Hồng Phúc}
+
+\begin{tabularx}{\textwidth}{|p{4cm}|X|}
+\hline
+\textbf{Đã hoàn thành} &
+• Tham gia xây dựng bảng khảo sát trực tuyến cùng nhóm.\\
+&
+• Góp ý các câu hỏi liên quan đến quảng cáo, khả năng tìm kiếm trận đấu và trải nghiệm người dùng.\\
+&
+• Thống nhất kế hoạch phân tích dữ liệu sau khi hoàn thành khảo sát.\\
+\hline
+
+\textbf{Sẽ thực hiện} &
+• Thu thập phản hồi từ Google Form và hỗ trợ phân tích dữ liệu khảo sát.\\
+\hline
+
+\textbf{Khó khăn} &
+Không.\\
+\hline
+\end{tabularx}
+
+\vspace{0.8cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{4. Công việc cần thực hiện}
+
+\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{0.8cm}|X|>{\centering\arraybackslash}p{4.5cm}|>{\centering\arraybackslash}p{2.2cm}|}
+\hline
+\rowcolor{gray!20}
+\textbf{STT} &
+\textbf{Công việc} &
+\textbf{Người phụ trách} &
+\textbf{Deadline}\\
+\hline
+
+1 &
+Phỏng vấn trực tiếp hai người dùng thường xuyên xem video thể thao và tổng hợp kết quả nghiên cứu. &
+Huỳnh Lê Khôi &
+14/07/2026\\
+\hline
+
+2 &
+Thực hiện hai buổi phỏng vấn trực tuyến thông qua Google Meet và ghi nhận các vấn đề của người dùng. &
+Bùi Đức Đạt &
+14/07/2026\\
+\hline
+
+3 &
+Phát hành Google Form, thu thập phản hồi từ bốn người tham gia khảo sát và tổng hợp dữ liệu. &
+Phan Thị Hương Xuân, Nguyễn Tuấn Minh, Nguyễn Hồng Phúc &
+15/07/2026\\
+\hline
+
+4 &
+Chuẩn bị Persona, Affinity Diagram và các nội dung User Analysis dựa trên dữ liệu khảo sát. &
+Tất cả thành viên &
+16/07/2026\\
+\hline
+
+5 &
+Thống nhất các Use Case sẽ phát triển trong PA2 và chuẩn bị cho buổi họp tuần tiếp theo. &
+Tất cả thành viên &
+16/07/2026\\
+\hline
+
+\end{tabularx}
+
+\vspace{0.8cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{5. Tổng kết cuộc họp}
+
+\begin{tabularx}{\textwidth}{|c|X|}
+\hline
+\rowcolor{gray!20}
+\textbf{STT} &
+\textbf{Nội dung}\\
+\hline
+
+1 &
+Nhóm đã thống nhất phương pháp nghiên cứu người dùng bao gồm phỏng vấn trực tiếp, phỏng vấn trực tuyến và khảo sát bằng Google Form.\\
+\hline
+
+2 &
+Các thành viên đã hoàn thành việc chuẩn bị bộ câu hỏi khảo sát và kế hoạch thực hiện User Research.\\
+\hline
+
+3 &
+Nhóm thống nhất đối tượng khảo sát là người thường xuyên xem các nội dung thể thao trực tuyến trên VTV Prime và FPT Play.\\
+\hline
+
+4 &
+Các nhiệm vụ đã được phân chia cụ thể nhằm bảo đảm hoàn thành Requirement 1 của PA2 đúng tiến độ.\\
+\hline
+
+5 &
+Buổi họp kết thúc với sự đồng thuận của tất cả thành viên và không phát sinh trở ngại ảnh hưởng đến tiến độ dự án.\\
+\hline
+
+\end{tabularx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{6. Xác nhận của thành viên}
+
+\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{0.8cm}|X|>{\centering\arraybackslash}p{3.8cm}|>{\centering\arraybackslash}p{2.5cm}|}
+\hline
+\rowcolor{gray!20}
+\textbf{STT} &
+\centering\textbf{Thành viên} &
+\textbf{Xác nhận} &
+\textbf{Chữ ký}\\
+\hline
+
+1 &
+Huỳnh Lê Khôi &
+$\bigcirc$ Không \qquad $\bullet$ Có &
+Đã ký\\
+\hline
+
+2 &
+Bùi Đức Đạt &
+$\bigcirc$ Không \qquad $\bullet$ Có &
+Đã ký\\
+\hline
+
+3 &
+Phan Thị Hương Xuân &
+$\bigcirc$ Không \qquad $\bullet$ Có &
+Đã ký\\
+\hline
+
+4 &
+Nguyễn Tuấn Minh &
+$\bigcirc$ Không \qquad $\bullet$ Có &
+Đã ký\\
+\hline
+
+5 &
+Nguyễn Hồng Phúc &
+$\bigcirc$ Không \qquad $\bullet$ Có &
+Đã ký\\
+\hline
+
+\end{tabularx}
+
+\vspace{1.5cm}
+
+\begin{flushright}
+\begin{tabular}{c}
+\textbf{Người lập biên bản}\\[2cm]
+\textbf{Huỳnh Lê Khôi}\\
+(Đã ký)
+\end{tabular}
+\end{flushright}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\begin{center}
+    {\Huge\bfseries BIÊN BẢN HỌP HẰNG TUẦN}
+
+    \vspace{0.2cm}
+
+    {\Large Đồ án môn học: Thiết kế giao diện}
+\end{center}
+
+\vspace{0.8cm}
+
+\begin{tabularx}{\textwidth}{|>{\bfseries}p{4cm}|X|}
+\hline
+Sprint & Sprint 2 \\ \hline
+Cuộc họp & Tuần 4 (17/07/2026 -- 23/07/2026) \\ \hline
+Ngày họp & 17/07/2026 \\ \hline
+Thời gian & 20:00 -- 21:15 \\ \hline
+Hình thức & Google Meet \\ \hline
+Người điều phối & 23127068 - Huỳnh Lê Khôi \\ \hline
+Thành viên &
+23127068 - Huỳnh Lê Khôi\\
+&
+23127337 - Bùi Đức Đạt\\
+&
+23127147 - Phan Thị Hương Xuân\\
+&
+22127271 - Nguyễn Tuấn Minh\\
+&
+22127333 - Nguyễn Hồng Phúc\\
+\hline
+\end{tabularx}
+
+\vspace{0.8cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{1. Thành viên tham dự}
+
+\begin{tabularx}{\textwidth}{|p{4cm}|X|}
+\hline
+\rowcolor{gray!20}
+\textbf{Trạng thái} & \textbf{Danh sách}\\
+\hline
+Có mặt &
+23127068 - Huỳnh Lê Khôi\\
+&
+23127337 - Bùi Đức Đạt\\
+&
+23127147 - Phan Thị Hương Xuân\\
+&
+22127271 - Nguyễn Tuấn Minh\\
+&
+22127333 - Nguyễn Hồng Phúc\\
+\hline
+Vắng mặt & Không\\
+\hline
+\end{tabularx}
+
+\vspace{0.8cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{2. Nội dung buổi họp}
+
+\begin{enumerate}
+    \item Báo cáo kết quả User Research sau khi hoàn thành phỏng vấn trực tiếp, phỏng vấn Google Meet và khảo sát Google Form.
+
+    \item Phân tích các pain points của người dùng khi xem video thể thao trên các nền tảng phát trực tuyến.
+
+    \item Thảo luận và xây dựng Persona, User Journey và Affinity Diagram dựa trên dữ liệu khảo sát.
+
+    \item Thống nhất ba hướng giải pháp (Proposal) nhằm cải thiện trải nghiệm người dùng.
+
+    \item Phân chia nhiệm vụ xây dựng Use Case Diagram và Use Case Specification cho từng thành viên.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{3. Báo cáo tiến độ}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Bùi Đức Đạt}
+
+\begin{tabularx}{\textwidth}{|p{4cm}|X|}
+\hline
+\textbf{Đã hoàn thành} &
+• Hoàn thành hai buổi phỏng vấn người dùng thông qua Google Meet và ghi nhận các nhu cầu, khó khăn khi theo dõi các trận đấu thể thao trực tuyến.\\
+&
+• Tổng hợp kết quả phỏng vấn và xác định các vấn đề phổ biến liên quan tư thế người dùng và cách tiếp cận các phần mềm.\\
+&
+• Tham gia xây dựng Persona và thảo luận các giải pháp cải thiện trải nghiệm người dùng.\\
+\hline
+
+\textbf{Sẽ thực hiện} &
+• Phối hợp cùng Huỳnh Lê Khôi xây dựng Use Case 2 và hoàn thiện tài liệu Proposal.\\
+\hline
+
+\textbf{Khó khăn} &
+Không.\\
+\hline
+\end{tabularx}
+
+\vspace{0.6cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Huỳnh Lê Khôi}
+
+\begin{tabularx}{\textwidth}{|p{4cm}|X|}
+\hline
+\textbf{Đã hoàn thành} &
+• Hoàn thành hai buổi phỏng vấn trực tiếp và tổng hợp các ý kiến của người tham gia nghiên cứu.\\
+&
+• Phân tích kết quả User Research và xây dựng Persona đại diện cho nhóm người dùng mục tiêu.\\
+&
+• Điều phối buổi họp và thống nhất các pain points sẽ được giải quyết trong PA2.\\
+\hline
+
+\textbf{Sẽ thực hiện} &
+• Hoàn thiện Proposal và phối hợp xây dựng Use Case 2.\\
+\hline
+
+\textbf{Khó khăn} &
+Không.\\
+\hline
+\end{tabularx}
+
+\vspace{0.6cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Phan Thị Hương Xuân}
+
+\begin{tabularx}{\textwidth}{|p{4cm}|X|}
+\hline
+\textbf{Đã hoàn thành} &
+• Thu thập và tổng hợp kết quả khảo sát từ Google Form.\\
+&
+• Phân loại dữ liệu khảo sát theo từng nhóm hành vi người dùng.\\
+&
+• Tham gia xây dựng Proposal và chuẩn bị Use Case 1 cùng Nguyễn Tuấn Minh.\\
+\hline
+
+\textbf{Sẽ thực hiện} &
+• Thiết kế Use Case Diagram và hoàn thiện Use Case Specification số 1.\\
+\hline
+
+\textbf{Khó khăn} &
+Không.\\
+\hline
+\end{tabularx}
+
+\vspace{0.6cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Nguyễn Tuấn Minh}
+
+\begin{tabularx}{\textwidth}{|p{4cm}|X|}
+\hline
+\textbf{Đã hoàn thành} &
+• Hỗ trợ tổng hợp dữ liệu khảo sát và xây dựng Affinity Diagram.\\
+&
+• Tham gia phân tích các pain points và thảo luận hướng giải quyết.\\
+&
+• Chuẩn bị tài liệu cho Use Case 1 cùng Phan Thị Hương Xuân.\\
+\hline
+
+\textbf{Sẽ thực hiện} &
+• Hoàn thiện Use Case Diagram và Use Case Specification số 1.\\
+\hline
+
+\textbf{Khó khăn} &
+Không.\\
+\hline
+\end{tabularx}
+
+\vspace{0.6cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Nguyễn Hồng Phúc}
+
+\begin{tabularx}{\textwidth}{|p{4cm}|X|}
+\hline
+\textbf{Đã hoàn thành} &
+• Phân tích dữ liệu khảo sát từ Google Form và hỗ trợ xây dựng Affinity Diagram.\\
+&
+• Đề xuất các ý tưởng cải thiện trải nghiệm quảng cáo và vị trí của nút chức năng trong quá trình xem video.\\
+&
+• Thảo luận giải pháp tối ưu vị trí nút Skip Advertisement nhằm giảm thao tác của người dùng.\\
+\hline
+
+\textbf{Sẽ thực hiện} &
+• Xây dựng Use Case liên quan đến tối ưu quảng cáo và cải thiện giao diện người dùng.\\
+\hline
+
+\textbf{Khó khăn} &
+Không.\\
+\hline
+\end{tabularx}
+
+\vspace{0.8cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{4. Công việc cần thực hiện}
+
+\begin{tabularx}{\textwidth}{|c|X|c|c|}
+\hline
+\rowcolor{gray!20}
+\textbf{STT} &
+\textbf{Công việc} &
+\textbf{Người phụ trách} &
+\textbf{Deadline}\\
+\hline
+
+1 &
+Hoàn thiện Persona, User Journey và Proposal dựa trên kết quả User Research. &
+Huỳnh Lê Khôi &
+21/07/2026\\
+\hline
+
+2 &
+Xây dựng Use Case Diagram và Use Case Specification số 2 (Reminder + Highlight Recommendation). &
+Huỳnh Lê Khôi, Bùi Đức Đạt &
+22/07/2026\\
+\hline
+
+3 &
+Xây dựng Use Case Diagram và Use Case Specification số 1 (Live Match Recommendation). &
+Phan Thị Hương Xuân, Nguyễn Tuấn Minh &
+22/07/2026\\
+\hline
+
+4 &
+Hoàn thiện Use Case tối ưu quảng cáo và vị trí nút Skip Advertisement. &
+Nguyễn Hồng Phúc &
+22/07/2026\\
+\hline
+
+5 &
+Rà soát toàn bộ Requirement 1 đến Requirement 4 và chuẩn bị Peer Review cho tuần tiếp theo. &
+Tất cả thành viên &
+23/07/2026\\
+\hline
+
+\end{tabularx}
+
+\vspace{0.8cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{5. Tổng kết cuộc họp}
+
+\begin{tabularx}{\textwidth}{|c|X|}
+\hline
+\rowcolor{gray!20}
+\textbf{STT} &
+\textbf{Nội dung}\\
+\hline
+
+1 &
+Nhóm đã hoàn thành quá trình User Research với tổng cộng tám người tham gia thông qua ba phương pháp khảo sát khác nhau.\\
+\hline
+
+2 &
+Các pain points chính đã được xác định gồm khó tìm trận đấu đang phát trực tiếp, quảng cáo gây gián đoạn, khó tìm highlight và thông báo chưa đúng thời điểm.\\
+\hline
+
+3 &
+Nhóm đã thống nhất ba hướng giải pháp và bắt đầu xây dựng Proposal cho hệ thống hỗ trợ xem video thể thao.\\
+\hline
+
+4 &
+Các Use Case đã được phân chia cụ thể cho từng thành viên nhằm hoàn thành Requirement 4 của PA2 đúng tiến độ.\\
+\hline
+
+5 &
+Buổi họp kết thúc với sự thống nhất của tất cả thành viên về kế hoạch hoàn thiện Use Case và chuẩn bị Peer Review trong tuần tiếp theo.\\
+\hline
+
+\end{tabularx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{6. Xác nhận của thành viên}
+
+\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{0.8cm}|X|>{\centering\arraybackslash}p{3.8cm}|>{\centering\arraybackslash}p{2.5cm}|}
+\hline
+\rowcolor{gray!20}
+\textbf{STT} &
+\centering\textbf{Thành viên} &
+\textbf{Xác nhận} &
+\textbf{Chữ ký}\\
+\hline
+
+1 &
+Huỳnh Lê Khôi &
+$\bigcirc$ Không \qquad $\bullet$ Có &
+Đã ký\\
+\hline
+
+2 &
+Bùi Đức Đạt &
+$\bigcirc$ Không \qquad $\bullet$ Có &
+Đã ký\\
+\hline
+
+3 &
+Phan Thị Hương Xuân &
+$\bigcirc$ Không \qquad $\bullet$ Có &
+Đã ký\\
+\hline
+
+4 &
+Nguyễn Tuấn Minh &
+$\bigcirc$ Không \qquad $\bullet$ Có &
+Đã ký\\
+\hline
+
+5 &
+Nguyễn Hồng Phúc &
+$\bigcirc$ Không \qquad $\bullet$ Có &
+Đã ký\\
+\hline
+
+\end{tabularx}
+
+\vspace{1.5cm}
+
+\begin{flushright}
+\begin{tabular}{c}
+\textbf{Người lập biên bản}\\[2cm]
+\textbf{Huỳnh Lê Khôi}\\
+(Đã ký)
+\end{tabular}
+\end{flushright}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\begin{center}
+    {\Huge\bfseries BIÊN BẢN HỌP HẰNG TUẦN}
+
+    \vspace{0.2cm}
+
+    {\Large Đồ án môn học: Thiết kế giao diện}
+\end{center}
+
+\vspace{0.8cm}
+
+\begin{tabularx}{\textwidth}{|>{\bfseries}p{4cm}|X|}
+\hline
+Sprint & Sprint 3 \\ \hline
+Cuộc họp & Tuần 5 (24/07/2026 -- 30/07/2026) \\ \hline
+Ngày họp & 24/07/2026 \\ \hline
+Thời gian & 20:00 -- 21:10 \\ \hline
+Hình thức & Google Meet \\ \hline
+Người điều phối & 23127068 - Huỳnh Lê Khôi \\ \hline
+Thành viên &
+23127068 - Huỳnh Lê Khôi\\
+&
+23127337 - Bùi Đức Đạt\\
+&
+23127147 - Phan Thị Hương Xuân\\
+&
+22127271 - Nguyễn Tuấn Minh\\
+&
+22127333 - Nguyễn Hồng Phúc\\
+\hline
+\end{tabularx}
+
+\vspace{0.8cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{1. Thành viên tham dự}
+
+\begin{tabularx}{\textwidth}{|p{4cm}|X|}
+\hline
+\rowcolor{gray!20}
+\textbf{Trạng thái} & \textbf{Danh sách}\\
+\hline
+Có mặt &
+23127068 - Huỳnh Lê Khôi\\
+&
+23127337 - Bùi Đức Đạt\\
+&
+23127147 - Phan Thị Hương Xuân\\
+&
+22127271 - Nguyễn Tuấn Minh\\
+&
+22127333 - Nguyễn Hồng Phúc\\
+\hline
+Vắng mặt & Không\\
+\hline
+\end{tabularx}
+
+\vspace{0.8cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{2. Nội dung buổi họp}
+
+\begin{enumerate}
+    \item Báo cáo tiến độ hoàn thiện các Use Case Diagram và Use Case Specification của từng thành viên.
+
+    \item Thảo luận, rà soát toàn bộ Requirement 1 đến Requirement 4 nhằm bảo đảm nội dung thống nhất và đầy đủ trước khi trình bày.
+
+    \item Chuẩn bị nội dung trình bày và phân công thành viên thuyết trình.
+
+    \item Tổng hợp các góp ý nội bộ, chỉnh sửa Proposal, Persona, Affinity Diagram và Use Case.
+
+    \item Thống nhất kế hoạch hoàn thiện báo cáo cuối cùng và nộp PA2 đúng thời hạn.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{3. Báo cáo tiến độ}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Bùi Đức Đạt}
+
+\begin{tabularx}{\textwidth}{|p{4cm}|X|}
+\hline
+\textbf{Đã hoàn thành} &
+• Hoàn thành Use Case Diagram và Use Case Specification số 2 cùng Huỳnh Lê Khôi.\\
+&
+• Kiểm tra tính thống nhất giữa Proposal và Use Case.\\
+&
+• Tham gia chỉnh sửa tài liệu theo góp ý của các thành viên trong nhóm.\\
+\hline
+
+\textbf{Sẽ thực hiện} &
+• Hỗ trợ hoàn thiện slide thuyết trình và chuẩn bị Peer Review.\\
+\hline
+
+\textbf{Khó khăn} &
+Không.\\
+\hline
+\end{tabularx}
+
+\vspace{0.6cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Huỳnh Lê Khôi}
+
+\begin{tabularx}{\textwidth}{|p{4cm}|X|}
+\hline
+\textbf{Đã hoàn thành} &
+• Hoàn thiện Proposal, Persona và tổng hợp kết quả User Research.\\
+&
+• Hoàn thành Use Case Diagram và Use Case Specification số 2 cùng Bùi Đức Đạt.\\
+&
+• Tổng hợp toàn bộ nội dung báo cáo và điều phối buổi họp nhóm.\\
+\hline
+
+\textbf{Sẽ thực hiện} &
+• Chuẩn bị slide thuyết trình và hoàn thiện tài liệu cuối cùng trước khi nộp.\\
+\hline
+
+\textbf{Khó khăn} &
+Không.\\
+\hline
+\end{tabularx}
+
+\vspace{0.6cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Phan Thị Hương Xuân}
+
+\begin{tabularx}{\textwidth}{|p{4cm}|X|}
+\hline
+\textbf{Đã hoàn thành} &
+• Hoàn thành Use Case Diagram và Use Case Specification số 1 cùng Nguyễn Tuấn Minh.\\
+&
+• Rà soát Proposal và cập nhật nội dung theo góp ý của nhóm.\\
+&
+• Hỗ trợ chuẩn hóa bố cục và hình ảnh trong báo cáo.\\
+\hline
+
+\textbf{Sẽ thực hiện} &
+• Hỗ trợ chuẩn bị nội dung trình bày trong buổi thuyết trình.\\
+\hline
+
+\textbf{Khó khăn} &
+Không.\\
+\hline
+\end{tabularx}
+
+\vspace{0.6cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Nguyễn Tuấn Minh}
+
+\begin{tabularx}{\textwidth}{|p{4cm}|X|}
+\hline
+\textbf{Đã hoàn thành} &
+• Hoàn thiện Use Case Diagram và Use Case Specification số 1 cùng Phan Thị Hương Xuân.\\
+&
+• Kiểm tra lại luồng tương tác giữa người dùng và hệ thống trong Use Case.\\
+&
+• Tham gia chỉnh sửa báo cáo theo các góp ý nội bộ.\\
+\hline
+
+\textbf{Sẽ thực hiện} &
+• Hỗ trợ chuẩn bị Peer Review và rà soát tài liệu lần cuối.\\
+\hline
+
+\textbf{Khó khăn} &
+Không.\\
+\hline
+\end{tabularx}
+
+\vspace{0.6cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Nguyễn Hồng Phúc}
+
+\begin{tabularx}{\textwidth}{|p{4cm}|X|}
+\hline
+\textbf{Đã hoàn thành} &
+• Hoàn thành Use Case tối ưu vị trí nút Skip Advertisement và cải thiện trải nghiệm quảng cáo.\\
+&
+• Tham gia chỉnh sửa Affinity Diagram và Proposal theo góp ý của nhóm.\\
+&
+• Rà soát tính nhất quán giữa các Use Case trong tài liệu.\\
+\hline
+
+\textbf{Sẽ thực hiện} &
+• Hỗ trợ hoàn thiện báo cáo và slide trước khi trình bày.\\
+\hline
+
+\textbf{Khó khăn} &
+Không.\\
+\hline
+\end{tabularx}
+
+\vspace{0.8cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{4. Công việc cần thực hiện}
+
+\begin{tabularx}{\textwidth}{|c|X|c|c|}
+\hline
+\rowcolor{gray!20}
+\textbf{STT} &
+\textbf{Công việc} &
+\textbf{Người phụ trách} &
+\textbf{Deadline}\\
+\hline
+
+1 &
+Hoàn thiện toàn bộ báo cáo PA2 sau khi rà soát Requirement 1 đến Requirement 4. &
+Huỳnh Lê Khôi &
+28/07/2026\\
+\hline
+
+2 &
+Hoàn thiện slide thuyết trình và phân chia nội dung trình bày. &
+Huỳnh Lê Khôi, Bùi Đức Đạt &
+28/07/2026\\
+\hline
+
+3 &
+Kiểm tra Use Case, Proposal và Persona; chỉnh sửa theo góp ý của nhóm. &
+Phan Thị Hương Xuân, Nguyễn Tuấn Minh &
+28/07/2026\\
+\hline
+
+4 &
+Rà soát phần tối ưu quảng cáo và thống nhất toàn bộ giao diện đề xuất. &
+Nguyễn Hồng Phúc &
+28/07/2026\\
+\hline
+
+5 &
+Chuẩn bị thuyết trình, tiếp nhận góp ý và hoàn thiện phiên bản cuối cùng trước khi nộp Moodle. &
+Tất cả thành viên &
+30/07/2026\\
+\hline
+
+\end{tabularx}
+
+\vspace{0.8cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{5. Tổng kết cuộc họp}
+
+\begin{tabularx}{\textwidth}{|c|X|}
+\hline
+\rowcolor{gray!20}
+\textbf{STT} &
+\textbf{Nội dung}\\
+\hline
+
+1 &
+Nhóm đã hoàn thành toàn bộ nội dung User Research, User Analysis, Proposal và Use Case Specification theo kế hoạch.\\
+\hline
+
+2 &
+Các thành viên đã rà soát và thống nhất toàn bộ tài liệu nhằm bảo đảm tính nhất quán trước khi trình bày.\\
+\hline
+
+3 &
+Các Use Case được hoàn thiện và phân công đúng theo kế hoạch của nhóm, bao gồm Live Match Recommendation, Reminder + Highlight Recommendation và Advertisement Optimization.\\
+\hline
+
+4 &
+Nhóm thống nhất chuẩn bị Peer Review, tiếp nhận các góp ý để chỉnh sửa và hoàn thiện phiên bản cuối cùng của báo cáo.\\
+\hline
+
+5 &
+Buổi họp kết thúc với sự đồng thuận của tất cả thành viên và thống nhất hoàn thành việc nộp PA2 đúng thời hạn.\\
+\hline
+
+\end{tabularx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{6. Xác nhận của thành viên}
+
+\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{0.8cm}|X|>{\centering\arraybackslash}p{3.8cm}|>{\centering\arraybackslash}p{2.5cm}|}
+\hline
+\rowcolor{gray!20}
+\textbf{STT} &
+\centering\textbf{Thành viên} &
+\textbf{Xác nhận} &
+\textbf{Chữ ký}\\
+\hline
+
+1 &
+Huỳnh Lê Khôi &
+$\bigcirc$ Không \qquad $\bullet$ Có &
+Đã ký\\
+\hline
+
+2 &
+Bùi Đức Đạt &
+$\bigcirc$ Không \qquad $\bullet$ Có &
+Đã ký\\
+\hline
+
+3 &
+Phan Thị Hương Xuân &
+$\bigcirc$ Không \qquad $\bullet$ Có &
+Đã ký\\
+\hline
+
+4 &
+Nguyễn Tuấn Minh &
+$\bigcirc$ Không \qquad $\bullet$ Có &
+Đã ký\\
+\hline
+
+5 &
+Nguyễn Hồng Phúc &
+$\bigcirc$ Không \qquad $\bullet$ Có &
+Đã ký\\
+\hline
+
+\end{tabularx}
+
+\vspace{1.5cm}
+
+\begin{flushright}
+\begin{tabular}{c}
+\textbf{Người lập biên bản}\\[2cm]
+\textbf{Huỳnh Lê Khôi}\\
+(Đã ký)
+\end{tabular}
+\end{flushright}
 
 \end{document}
