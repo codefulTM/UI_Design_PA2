@@ -1,0 +1,61 @@
+@startuml uc-ai-segmentation
+' Sơ đồ Use Case: Concept A - Phân đoạn nội dung bằng AI
+' Vấn đề 1: Trì hoãn khi xem trực tiếp
+
+skinparam packageStyle rectangle
+skinparam actorStyle awesome
+skinparam usecase {
+  BackgroundColor #F9F9F9
+  BorderColor #333333
+  ArrowColor #333333
+  MinimumWidth 150
+}
+skinparam actor {
+  BackgroundColor #F9F9F9
+  BorderColor #333333
+}
+skinparam rectangle {
+  BackgroundColor #E8F4FD
+  BorderColor #4A90D9
+  BorderStyle dashed
+}
+skinparam defaultFontSize 12
+skinparam shadowing false
+skinparam roundcorner 10
+
+left to right direction
+
+actor "Người xem" as viewer
+actor "Hệ thống AI" as ai
+
+rectangle "Hệ thống phát trực tuyến với AI" as system {
+  ' Nhóm use case của Viewer
+  usecase "Xem phát trực tuyến" as UC1
+  usecase "Xem các đoạn\nquan trọng" as UC2
+  usecase "Sử dụng chế độ nhanh" as UC3
+  
+  ' Nhóm use case của AI
+  usecase "Phân đoạn nội dung" as UC4
+  usecase "Đánh dấu các đoạn\nquan trọng" as UC5
+  usecase "Đánh dấu đoạn\nkhông quan trọng" as UC7
+  usecase "Đánh dấu khung hình\ntĩnh cho đoạn không\nquan trọng" as UC8
+}
+
+' Liên kết actor-usecase với độ ưu tiên
+viewer -right-> UC1
+viewer -right-> UC2
+viewer -right-> UC3
+
+ai -left-> UC4
+ai -left-> UC5
+ai -left-> UC7
+ai -left-> UC8
+
+' Mối quan hệ include/extend
+UC1 ..> UC2 : <<include>>
+UC3 ..> UC1 : <<extend>>
+UC4 ..> UC5 : <<include>>
+UC4 ..> UC7 : <<include>>
+UC7 ..> UC8 : <<include>>
+
+@enduml

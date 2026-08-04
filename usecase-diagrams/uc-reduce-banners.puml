@@ -1,0 +1,42 @@
+@startuml uc-reduce-banners
+' Sơ đồ Use Case: Concept A - Giảm banner và carousel
+' Vấn đề 2: Quá tải thông tin cho người dùng mới
+
+skinparam packageStyle rectangle
+skinparam actorStyle awesome
+skinparam usecase {
+  BackgroundColor #F9F9F9
+  BorderColor #333333
+  ArrowColor #333333
+  MinimumWidth 150
+}
+skinparam actor {
+  BackgroundColor #F9F9F9
+  BorderColor #333333
+}
+skinparam rectangle {
+  BackgroundColor #E8F4FD
+  BorderColor #4A90D9
+  BorderStyle dashed
+}
+skinparam defaultFontSize 12
+skinparam shadowing false
+skinparam roundcorner 10
+
+left to right direction
+
+actor "Người dùng" as user
+
+rectangle "Giao diện đơn giản hóa" as system {
+  usecase "Xem carousel duy nhất" as UC1
+  usecase "Thu gọn carousel" as UC2
+} 
+
+' Liên kết actor-usecase với hướng phải
+user -right-> UC1
+user -right-> UC2
+
+' Mối quan hệ include/extend
+UC2 ..> UC1 : <<extend>>
+
+@enduml

@@ -1,0 +1,60 @@
+% ======================================================
+%  PART II — CÁC GIẢI PHÁP THỰC THỂ (Conceptual Solutions)
+% ======================================================
+% Yêu cầu: Với mỗi problem ở Part I, đề xuất 2-3 conceptual solutions
+% KHÁC BIỆT ĐÁNG KỂ so với nhau.
+%
+% Không phải 2-3 version sửa đổi nhỏ — mà là các hướng tiếp cận
+% khác nhau về fundamental approach.
+\section{Conceptual Solutions}
+
+\subsection{Vấn đề 1: Trì hoãn (\textit{lag}) khi xem trực tiếp}
+
+\subsubsection{Concept A: Sử dụng trí tuệ nhân tạo để phân đoạn nội dung phát trực tiếp}
+
+Trí tuệ nhân tạo có thể phân tích lời bình luận của bình luận viên kết hợp với các hình ảnh trong video để chia nội dung phát trực tiếp thành các đoạn quan trọng và đoạn không quan trọng.
+
+Những đoạn quan trọng sẽ được ``đánh dấu trang'' để người dùng có thể nhảy đến ngay để xem. Dấu trang được thiết kế nổi bật để thu hút người dùng nhấp vào. Nhờ đó, lượng truy cập vào các đoạn không quan trọng giảm dần, giúp hệ thống tiết kiệm tài nguyên — không cần tải những phần kém quan trọng.
+
+Tính năng ``chế độ nhanh'' cho phép hiển thị những đoạn không quan trọng dưới dạng một khung hình chứa ảnh tĩnh (một bức ảnh nổi bật nhất trong các khung hình được phát ra) kèm văn bản mô tả và giọng đọc của bình luận viên. Văn bản được hiển thị theo kiểu phát liên tục (streaming) để người dùng có cảm giác vẫn đang được cập nhật thông tin theo thời gian thực.
+
+Nhược điểm của giải pháp này là phải tốn thêm chi phí xử lý trí tuệ nhân tạo (dù không đáng kể vì dữ liệu chỉ cần phân tích một lần và lưu lại, không phải phân tích lại mỗi khi truyền video đến người dùng). Ngoài ra, những người dùng đầu tiên tham gia xem có thể chưa có dữ liệu phân tích sẵn nên ``chế độ nhanh'' chưa khả dụng tại thời điểm đó.
+
+% TODO:
+% - Mô tả giải pháp ở mức khái niệm
+% - Giải pháp này giải quyết được vấn đề như thế nào?
+% - Nhược điểm chính
+
+\subsubsection{Concept B: Biến mỗi người dùng thành một kênh phát trực tiếp riêng}
+% TODO: Mô tả — PHẢI khác đáng kể so với Concept A
+% Ví dụ: Concept A là "tự động", Concept B là "user-controlled"
+
+Ý tưởng là ứng dụng tích hợp chức năng gọi video cơ bản theo kiểu P2P — kết nối trực tiếp giữa người dùng với nhau mà không thông qua máy chủ chính. Khi những người dùng đầu tiên tham gia xem một giải đấu lớn như World Cup hoặc Euro, ứng dụng sẽ đề xuất họ bật tính năng gọi video — cho phép người dùng khác xem cùng thông qua luồng video mà họ đang chia sẻ trong cuộc gọi, với đặc quyền được ưu tiên băng thông tốc độ cao (giao diện cần nhấn mạnh rõ ý này để người dùng đồng ý tham gia). Khi đó, những người dùng tiếp theo có tùy chọn tham gia xem thông qua cuộc gọi video của người dùng đầu tiên, giúp giảm tải cho máy chủ chính.
+
+Nhược điểm là giải pháp này chỉ khả thi khi số lượng người dùng tham gia sớm đủ lớn để tạo thành mạng lưới gọi video. Nếu không, những người dùng tiếp theo vẫn phải xem trực tiếp từ máy chủ chính, khiến tình trạng trì hoãn vẫn xảy ra. Ngoài ra, những người xem chung có thể nghe phải âm thanh từ những người dùng khác trong cùng một cuộc gọi, nên cần có cơ chế tắt tiếng những người dùng khác.
+
+% \subsection{Vấn đề 2: Giao diện quá nhiều hình ảnh, thiếu thông tin văn bản}
+% % TODO: Tương tự — 2-3 concepts khác nhau
+%
+% \subsubsection{Concept A: \textit{[Tên giải pháp]}}
+% % TODO
+%
+% \subsubsection{Concept B: \textit{[Tên giải pháp]}}
+% % TODO
+
+\subsection{Vấn đề 2: Quá tải thông tin đối với người dùng mới}
+% TODO: Tương tự — 2-3 concepts khác nhau
+
+Giao diện hiện tại hiển thị quá nhiều banner và carousel, nhưng thực tế chúng có thể không phù hợp với nội dung mà người dùng thực sự muốn xem — đặc biệt với người dùng thỉnh thoảng mới xem và người hâm mộ theo mùa, những người đã biết rõ mình cần xem gì ngay từ đầu (vì vậy nên họ thậm chí không cần xem qua các banner và carousel). Bên cạnh đó, số lượng danh mục hiển thị trên cùng một trang cũng quá lớn.
+
+\subsubsection{Concept A: Rút số lượng banner và carousel}
+% TODO
+Thay vì sử dụng nhiều banner và carousel, nhóm chuyển sang một carousel duy nhất đặt ở thanh bên trái hoặc phải. Carousel này vẫn có hoạt ảnh chuyển slide để tránh nhàm chán, đồng thời giảm đáng kể mật độ nội dung trên màn hình chính. Giải pháp này dựa trên quan sát rằng người dùng được khảo sát thường bỏ qua carousel do tính cá nhân hóa không cao — đặc biệt với người dùng mới. Có cơ sở để cho rằng những người dùng mới khác cũng sẽ có hành vi tương tự.
+
+Nhược điểm của concept này là carousel chiếm dụng một phần chiều rộng màn hình, nhưng có thể bù đắp bằng cách cho phép thu gọn thanh carousel lại khi không cần thiết.
+
+\subsubsection{Concept B: Cho phép người dùng vào chế độ chỉnh sửa giao diện để ``drag and drop'' các thành phần trên giao diện}
+% TODO
+Người dùng có thể chuyển sang ``chế độ chỉnh sửa'' để kéo thả vào trang chủ những nội dung hoặc chủ đề mà họ muốn hiển thị. Họ có thể ẩn đi những thành phần không mong muốn như banner, carousel, hoặc thumbnail của một bộ môn thể thao cụ thể hay một thể loại phim nào đó,\dots Nhờ vậy, người dùng sẽ không bị quá tải thông tin vì có thể tự sắp xếp giao diện theo nhu cầu cá nhân. Điểm khác biệt giữa concept này so với bộ lọc thông thường là người dùng có thể thay đổi thứ tự các thành phần trên giao diện, không chỉ ẩn hoặc hiện. Ngoài ra, sau khi lưu lại trạng thái giao diện, mỗi lần mở ứng dụng, ứng dụng sẽ hiển thị đúng bố cục đã thiết lập trước đó mà không bị khôi phục về trạng thái ban đầu.
+
+Nhược điểm là tùy chọn này phù hợp hơn với người có kinh nghiệm sử dụng máy tính nhất định hoặc người xem thường xuyên, vì nếu không xem thường xuyên thì việc dành thời gian chỉnh sửa và lưu lại giao diện sẽ không thực sự cần thiết.

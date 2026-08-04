@@ -1,0 +1,48 @@
+@startuml uc-edit-mode
+' Sơ đồ Use Case: Concept B - Chế độ chỉnh sửa với kéo thả
+' Vấn đề 2: Quá tải thông tin cho người dùng mới
+
+skinparam packageStyle rectangle
+skinparam actorStyle awesome
+skinparam usecase {
+  BackgroundColor #F9F9F9
+  BorderColor #333333
+  ArrowColor #333333
+  MinimumWidth 150
+}
+skinparam actor {
+  BackgroundColor #F9F9F9
+  BorderColor #333333
+}
+skinparam rectangle {
+  BackgroundColor #E8F4FD
+  BorderColor #4A90D9
+  BorderStyle dashed
+}
+skinparam defaultFontSize 12
+skinparam shadowing false
+skinparam roundcorner 10
+
+actor "Người dùng" as user
+
+rectangle "Giao diện có thể tùy chỉnh" as system {
+  usecase "Vào chế độ sửa giao diện" as UC1
+  usecase "Thoát chế độ sửa giao diện" as UC2
+  usecase "Lưu bố cục" as UC3
+  usecase "Ẩn hiện thành phần" as UC4
+  usecase "Điều chỉnh vị trí thành phần" as UC5
+}
+
+' Liên kết actor-usecase với hướng phải
+user -right-> UC1
+user -right-> UC2
+user -right-> UC3
+user -right-> UC4
+user -right-> UC5
+
+' Mối quan hệ include/extend
+UC4 ..> UC1 : <<extend>>
+UC5 ..> UC1 : <<extend>>
+UC3 ..> UC2 : <<include>>
+
+@enduml

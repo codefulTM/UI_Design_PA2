@@ -62,9 +62,9 @@
 \fancyhf{}                % Xóa tất cả header/footer mặc định
 \fancyfoot[C]{\thepage}   % Số trang ở chính giữa footer
 % Header
-\fancyhead[L]{[MSSV] - [Họ tên]} % Trái
+\fancyhead[L]{NHÓM 9} % Trái
 \fancyhead[C]{} % Giữa
-\fancyhead[R]{[Lớp]} % Phải
+\fancyhead[R]{23KTPM2} % Phải
 \renewcommand{\headrulewidth}{0.4pt}           % Đường kẻ ngang dưới header (0.4pt mảnh)
 
 % ===================== TITLE (TIÊU ĐỀ) =====================
@@ -90,14 +90,21 @@
 \begin{document}        % Bắt đầu nội dung tài liệu
 
 % ------------ TRANG BÌA -------------
-\input{sections/cover.tex}
+\input{sections/cover-proposal.tex}
 
 
 \tableofcontents        % Tự động tạo mục lục từ các \section, \subsection
 \newpage                % Ngắt trang - mục lục ở trang riêng
 
+% --- Phần nội dung chính (tách thành file riêng trong sections/proposal/) ---
+\input{sections/proposal/part1-identified-problems.tex}
+\newpage
+\input{sections/proposal/part2-conceptual-solutions.tex}
+\newpage
+\input{sections/proposal/part3-overall-solution.tex}
+
 % ======================================================
-%          BIBLIOGRAPHY
+%  BIBLIOGRAPHY
 % ======================================================
 \bibliographystyle{plain}
 \bibliography{references}
