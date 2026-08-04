@@ -1,0 +1,52 @@
+% ======================================================
+%  PART II — CÁC GIẢI PHÁP THỰC THỂ (Conceptual Solutions)
+% ======================================================
+% Yêu cầu: Với mỗi problem ở Part I, đề xuất 2-3 conceptual solutions
+% KHÁC BIỆT ĐÁNG KỂ so với nhau.
+%
+% Không phải 2-3 version sửa đổi nhỏ — mà là các hướng tiếp cận
+% khác nhau về fundamental approach.
+\section{Conceptual Solutions}
+
+\subsection{Vấn đề 1: Trì hoãn (\textit{lag}) khi xem trực tiếp}
+
+\subsubsection{Concept A: Sử dụng trí tuệ nhân tạo để phân đoạn nội dung phát trực tiếp}
+
+Trí tuệ nhân tạo có thể dựa vào lời nói của bình luận viên và hình ảnh để phân đoạn nội dung phát trực tiếp thành các phần quan trọng và không quan trọng. 
+
+Những đoạn quan trọng sẽ có ``dấu trang'' để người dùng nhảy đến ngay để xem lại. Dấu trang sẽ được làm nổi bật để tăng tỉ lệ người dùng nhấp vào. Khi đó, tỉ lệ click vào các đoạn không quan trọng giảm theo, giúp giảm tải không cần thiết cho hệ thống (không cần load những phần kém quan trọng).
+
+Có ``fast mode'' để những đoạn không quan trọng chỉ hiện một khung hình tĩnh kèm text mô tả và giọng đọc của bình luận viên. Text sẽ được hiện dưới dạng streaming để người dùng có cảm giác rằng họ vẫn đang được cập nhật thông tin theo thời gian thực.
+
+Nhược điểm là tốn chi phí AI (dù không nhiều vì không phải lần nào truyền dữ liệu video đến người dùng cũng phải phân tích AI, chỉ cần phân tích một lần và lưu lại). Với lại những người dùng đầu tiên join vào có thể sẽ chưa phân tích kịp nên fast mode chưa available.
+
+% TODO:
+% - Mô tả giải pháp ở mức khái niệm
+% - Giải pháp này giải quyết được vấn đề như thế nào?
+% - Nhược điểm chính
+
+\subsubsection{Concept B: Biến mỗi người dùng thành một kênh phát trực tiếp riêng}
+% TODO: Mô tả — PHẢI khác đáng kể so với Concept A
+% Ví dụ: Concept A là "tự động", Concept B là "user-controlled"
+
+Ý tưởng là ứng dụng sẽ tạo chức năng video call cơ bản dạng P2P -- kết nối giữa người dùng với nhau không thông qua server chính. Khi những người dùng sớm nhất join vào xem một giải đấu lớn, ứng dụng sẽ hỏi là người dùng có muốn bật tính năng video call -- cho phép người dùng khác xem cùng thông qua video người dùng hiện tại đang chia sẻ trong call hay không, với đặc quyền được ưu tiên về băng thông tốc độ cao (trên UI nhớ nhấn mạnh cái ý này để người ta đồng ý). Khi đó, những người dùng sau sẽ có tùy chọn join vào xem thông qua video call của người dùng đầu tiên, giúp giảm tải cho server chính.
+
+Nhược điểm là giải pháp này chỉ khả thi khi số lượng người dùng sớm join vào đủ lớn để tạo ra một mạng lưới video call. Nếu không, những người dùng sau sẽ vẫn phải xem trực tiếp từ server chính, dẫn đến tình trạng lag vẫn xảy ra. Với lại những người xem chung có thể sẽ nghe phải âm thanh của những người dùng khác join cùng một call, nên cần có cơ chế tắt tiếng những người dùng khác.
+
+\subsection{Problem 2: \textit{[Tên vấn đề]}}
+% TODO: Tương tự — 2-3 concepts khác nhau
+
+\subsubsection{Concept A: \textit{[Tên giải pháp]}}
+% TODO
+
+\subsubsection{Concept B: \textit{[Tên giải pháp]}}
+% TODO
+
+\subsection{Problem 3: \textit{[Tên vấn đề]}}
+% TODO: Tương tự — 2-3 concepts khác nhau
+
+\subsubsection{Concept A: \textit{[Tên giải pháp]}}
+% TODO
+
+\subsubsection{Concept B: \textit{[Tên giải pháp]}}
+% TODO
