@@ -12,13 +12,13 @@
 
 \subsubsection{Concept A: Sử dụng trí tuệ nhân tạo để phân đoạn nội dung phát trực tiếp}
 
-Trí tuệ nhân tạo có thể dựa vào lời nói của bình luận viên và hình ảnh để phân đoạn nội dung phát trực tiếp thành các phần quan trọng và không quan trọng. 
+Trí tuệ nhân tạo có thể phân tích lời bình luận của bình luận viên kết hợp với các hình ảnh trong video để chia nội dung phát trực tiếp thành các đoạn quan trọng và đoạn không quan trọng.
 
-Những đoạn quan trọng sẽ có ``dấu trang'' để người dùng nhảy đến ngay để xem lại. Dấu trang sẽ được làm nổi bật để tăng tỉ lệ người dùng nhấp vào. Khi đó, tỉ lệ click vào các đoạn không quan trọng giảm theo, giúp giảm tải không cần thiết cho hệ thống (không cần load những phần kém quan trọng).
+Những đoạn quan trọng sẽ được ``đánh dấu trang'' để người dùng có thể nhảy đến ngay để xem. Dấu trang được thiết kế nổi bật để thu hút người dùng nhấp vào. Nhờ đó, lượng truy cập vào các đoạn không quan trọng giảm dần, giúp hệ thống tiết kiệm tài nguyên — không cần tải những phần kém quan trọng.
 
-Có ``fast mode'' để những đoạn không quan trọng chỉ hiện một khung hình tĩnh kèm text mô tả và giọng đọc của bình luận viên. Text sẽ được hiện dưới dạng streaming để người dùng có cảm giác rằng họ vẫn đang được cập nhật thông tin theo thời gian thực.
+Tính năng ``chế độ nhanh'' cho phép hiển thị những đoạn không quan trọng dưới dạng một khung hình chứa ảnh tĩnh (một bức ảnh nổi bật nhất trong các khung hình được phát ra) kèm văn bản mô tả và giọng đọc của bình luận viên. Văn bản được hiển thị theo kiểu phát liên tục (streaming) để người dùng có cảm giác vẫn đang được cập nhật thông tin theo thời gian thực.
 
-Nhược điểm là tốn chi phí AI (dù không nhiều vì không phải lần nào truyền dữ liệu video đến người dùng cũng phải phân tích AI, chỉ cần phân tích một lần và lưu lại). Với lại những người dùng đầu tiên join vào có thể sẽ chưa phân tích kịp nên fast mode chưa available.
+Nhược điểm của giải pháp này là phải tốn thêm chi phí xử lý trí tuệ nhân tạo (dù không đáng kể vì dữ liệu chỉ cần phân tích một lần và lưu lại, không phải phân tích lại mỗi khi truyền video đến người dùng). Ngoài ra, những người dùng đầu tiên tham gia xem có thể chưa có dữ liệu phân tích sẵn nên ``chế độ nhanh'' chưa khả dụng tại thời điểm đó.
 
 % TODO:
 % - Mô tả giải pháp ở mức khái niệm
@@ -29,9 +29,9 @@ Nhược điểm là tốn chi phí AI (dù không nhiều vì không phải l�
 % TODO: Mô tả — PHẢI khác đáng kể so với Concept A
 % Ví dụ: Concept A là "tự động", Concept B là "user-controlled"
 
-Ý tưởng là ứng dụng sẽ tạo chức năng video call cơ bản dạng P2P -- kết nối giữa người dùng với nhau không thông qua server chính. Khi những người dùng sớm nhất join vào xem một giải đấu lớn, ứng dụng sẽ hỏi là người dùng có muốn bật tính năng video call -- cho phép người dùng khác xem cùng thông qua video người dùng hiện tại đang chia sẻ trong call hay không, với đặc quyền được ưu tiên về băng thông tốc độ cao (trên UI nhớ nhấn mạnh cái ý này để người ta đồng ý). Khi đó, những người dùng sau sẽ có tùy chọn join vào xem thông qua video call của người dùng đầu tiên, giúp giảm tải cho server chính.
+Ý tưởng là ứng dụng tích hợp chức năng gọi video cơ bản theo kiểu P2P — kết nối trực tiếp giữa người dùng với nhau mà không thông qua máy chủ chính. Khi những người dùng đầu tiên tham gia xem một giải đấu lớn như World Cup hoặc Euro, ứng dụng sẽ đề xuất họ bật tính năng gọi video — cho phép người dùng khác xem cùng thông qua luồng video mà họ đang chia sẻ trong cuộc gọi, với đặc quyền được ưu tiên băng thông tốc độ cao (giao diện cần nhấn mạnh rõ ý này để người dùng đồng ý tham gia). Khi đó, những người dùng tiếp theo có tùy chọn tham gia xem thông qua cuộc gọi video của người dùng đầu tiên, giúp giảm tải cho máy chủ chính.
 
-Nhược điểm là giải pháp này chỉ khả thi khi số lượng người dùng sớm join vào đủ lớn để tạo ra một mạng lưới video call. Nếu không, những người dùng sau sẽ vẫn phải xem trực tiếp từ server chính, dẫn đến tình trạng lag vẫn xảy ra. Với lại những người xem chung có thể sẽ nghe phải âm thanh của những người dùng khác join cùng một call, nên cần có cơ chế tắt tiếng những người dùng khác.
+Nhược điểm là giải pháp này chỉ khả thi khi số lượng người dùng tham gia sớm đủ lớn để tạo thành mạng lưới gọi video. Nếu không, những người dùng tiếp theo vẫn phải xem trực tiếp từ máy chủ chính, khiến tình trạng trì hoãn vẫn xảy ra. Ngoài ra, những người xem chung có thể nghe phải âm thanh từ những người dùng khác trong cùng một cuộc gọi, nên cần có cơ chế tắt tiếng những người dùng khác.
 
 % \subsection{Vấn đề 2: Giao diện quá nhiều hình ảnh, thiếu thông tin văn bản}
 % % TODO: Tương tự — 2-3 concepts khác nhau
@@ -45,16 +45,16 @@ Nhược điểm là giải pháp này chỉ khả thi khi số lượng ngườ
 \subsection{Vấn đề 2: Quá tải thông tin đối với người dùng mới}
 % TODO: Tương tự — 2-3 concepts khác nhau
 
-Có các vấn đề: Nhiều banner và carousel quá nhưng thực chất có thể không đúng cái mà người dùng muốn xem, đặc biệt với người dùng lâu lâu mới xem và fan theo mùa -- biết mình cần xem gì ngay từ đầu rồi; Quá nhiều category trong cùng một trang.
+Giao diện hiện tại hiển thị quá nhiều banner và carousel, nhưng thực tế chúng có thể không phù hợp với nội dung mà người dùng thực sự muốn xem — đặc biệt với người dùng thỉnh thoảng mới xem và người hâm mộ theo mùa, những người đã biết rõ mình cần xem gì ngay từ đầu (vì vậy nên họ thậm chí không cần xem qua các banner và carousel). Bên cạnh đó, số lượng danh mục hiển thị trên cùng một trang cũng quá lớn.
 
 \subsubsection{Concept A: Rút số lượng banner và carousel}
 % TODO
-Từ việc sử dụng nhiều banner và carousel, nhóm chuyển sang dùng 1 carousel duy nhất và đặt bên sidebar ở trái hoặc phải để thứ nhất là vẫn không bị chán, có animation chuyển qua lại giữa các slide mà vẫn giảm mật độ nội dung. Điều này dựa trên insight rằng người dùng được khảo sát thường bỏ qua carousel vì tính cá nhân hóa không cao (họ là người dùng mới). Có khả năng những người dùng mới khác cũng sẽ giống như họ. 
+Thay vì sử dụng nhiều banner và carousel, nhóm chuyển sang một carousel duy nhất đặt ở thanh bên trái hoặc phải. Carousel này vẫn có hoạt ảnh chuyển slide để tránh nhàm chán, đồng thời giảm đáng kể mật độ nội dung trên màn hình chính. Giải pháp này dựa trên quan sát rằng người dùng được khảo sát thường bỏ qua carousel do tính cá nhân hóa không cao — đặc biệt với người dùng mới. Có cơ sở để cho rằng những người dùng mới khác cũng sẽ có hành vi tương tự.
 
-Nhược điểm là bị chiếm mất chiều rộng của màn hình, nhưng có thể bù đắp bằng cách cho phép thu gọn carousel dạng dọc này lại.
+Nhược điểm của concept này là carousel chiếm dụng một phần chiều rộng màn hình, nhưng có thể bù đắp bằng cách cho phép thu gọn thanh carousel lại khi không cần thiết.
 
-\subsubsection{Concept B: Cho phép người dùng vào edit mode để drag and drop các thành phần trên giao diện}
+\subsubsection{Concept B: Cho phép người dùng vào chế độ chỉnh sửa giao diện để ``drag and drop'' các thành phần trên giao diện}
 % TODO
-Người dùng có thể vào edit mode để kéo thả vào trang chủ những nội dung, chủ đề phim mình muốn hiển thị. Có thể ẩn đi những thứ mình không muốn như banner, carousel, thumbnail của một thể loại phim nào đó, một môn thể thao nào đó. Khi đó, người dùng mới sẽ không bị quá tải thông tin vì họ có thể tự sắp xếp giao diện theo ý mình. Điểm khác biệt so với filter thuần là có thể thay đổi thứ tự của các thành phần trên giao diện, không chỉ ẩn hiện. Với lại sau khi save thì lần nào mở lên cũng sẽ có layout y chang như vậy chứ không bị reset.
+Người dùng có thể chuyển sang ``chế độ chỉnh sửa'' để kéo thả vào trang chủ những nội dung hoặc chủ đề mà họ muốn hiển thị. Họ có thể ẩn đi những thành phần không mong muốn như banner, carousel, hoặc thumbnail của một bộ môn thể thao cụ thể hay một thể loại phim nào đó,\dots Nhờ vậy, người dùng sẽ không bị quá tải thông tin vì có thể tự sắp xếp giao diện theo nhu cầu cá nhân. Điểm khác biệt giữa concept này so với bộ lọc thông thường là người dùng có thể thay đổi thứ tự các thành phần trên giao diện, không chỉ ẩn hoặc hiện. Ngoài ra, sau khi lưu lại trạng thái giao diện, mỗi lần mở ứng dụng, ứng dụng sẽ hiển thị đúng bố cục đã thiết lập trước đó mà không bị khôi phục về trạng thái ban đầu.
 
-Nhược điểm là tùy chọn này sẽ phù hợp hơn với người có kinh nghiệm chút ít về máy tính hoặc người xem thường xuyên, vì nếu không xem thường xuyên thì họ mất thời gian chỉnh giao diện rồi lưu lại làm gì khi mấy tháng mới vô xem một lần???
+Nhược điểm là tùy chọn này phù hợp hơn với người có kinh nghiệm sử dụng máy tính nhất định hoặc người xem thường xuyên, vì nếu không xem thường xuyên thì việc dành thời gian chỉnh sửa và lưu lại giao diện sẽ không thực sự cần thiết.
