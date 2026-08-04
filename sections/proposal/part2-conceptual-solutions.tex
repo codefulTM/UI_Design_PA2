@@ -33,20 +33,28 @@ Nhược điểm là tốn chi phí AI (dù không nhiều vì không phải l�
 
 Nhược điểm là giải pháp này chỉ khả thi khi số lượng người dùng sớm join vào đủ lớn để tạo ra một mạng lưới video call. Nếu không, những người dùng sau sẽ vẫn phải xem trực tiếp từ server chính, dẫn đến tình trạng lag vẫn xảy ra. Với lại những người xem chung có thể sẽ nghe phải âm thanh của những người dùng khác join cùng một call, nên cần có cơ chế tắt tiếng những người dùng khác.
 
-\subsection{Problem 2: \textit{[Tên vấn đề]}}
+% \subsection{Vấn đề 2: Giao diện quá nhiều hình ảnh, thiếu thông tin văn bản}
+% % TODO: Tương tự — 2-3 concepts khác nhau
+%
+% \subsubsection{Concept A: \textit{[Tên giải pháp]}}
+% % TODO
+%
+% \subsubsection{Concept B: \textit{[Tên giải pháp]}}
+% % TODO
+
+\subsection{Vấn đề 2: Quá tải thông tin đối với người dùng mới}
 % TODO: Tương tự — 2-3 concepts khác nhau
 
-\subsubsection{Concept A: \textit{[Tên giải pháp]}}
-% TODO
+Có các vấn đề: Nhiều banner và carousel quá nhưng thực chất có thể không đúng cái mà người dùng muốn xem, đặc biệt với người dùng lâu lâu mới xem và fan theo mùa -- biết mình cần xem gì ngay từ đầu rồi; Quá nhiều category trong cùng một trang.
 
-\subsubsection{Concept B: \textit{[Tên giải pháp]}}
+\subsubsection{Concept A: Rút số lượng banner và carousel}
 % TODO
+Từ việc sử dụng nhiều banner và carousel, nhóm chuyển sang dùng 1 carousel duy nhất và đặt bên sidebar ở trái hoặc phải để thứ nhất là vẫn không bị chán, có animation chuyển qua lại giữa các slide mà vẫn giảm mật độ nội dung. Điều này dựa trên insight rằng người dùng được khảo sát thường bỏ qua carousel vì tính cá nhân hóa không cao (họ là người dùng mới). Có khả năng những người dùng mới khác cũng sẽ giống như họ. 
 
-\subsection{Problem 3: \textit{[Tên vấn đề]}}
-% TODO: Tương tự — 2-3 concepts khác nhau
+Nhược điểm là bị chiếm mất chiều rộng của màn hình, nhưng có thể bù đắp bằng cách cho phép thu gọn carousel dạng dọc này lại.
 
-\subsubsection{Concept A: \textit{[Tên giải pháp]}}
+\subsubsection{Concept B: Cho phép người dùng vào edit mode để drag and drop các thành phần trên giao diện}
 % TODO
+Người dùng có thể vào edit mode để kéo thả vào trang chủ những nội dung, chủ đề phim mình muốn hiển thị. Có thể ẩn đi những thứ mình không muốn như banner, carousel, thumbnail của một thể loại phim nào đó, một môn thể thao nào đó. Khi đó, người dùng mới sẽ không bị quá tải thông tin vì họ có thể tự sắp xếp giao diện theo ý mình. Điểm khác biệt so với filter thuần là có thể thay đổi thứ tự của các thành phần trên giao diện, không chỉ ẩn hiện. Với lại sau khi save thì lần nào mở lên cũng sẽ có layout y chang như vậy chứ không bị reset.
 
-\subsubsection{Concept B: \textit{[Tên giải pháp]}}
-% TODO
+Nhược điểm là tùy chọn này sẽ phù hợp hơn với người có kinh nghiệm chút ít về máy tính hoặc người xem thường xuyên, vì nếu không xem thường xuyên thì họ mất thời gian chỉnh giao diện rồi lưu lại làm gì khi mấy tháng mới vô xem một lần???
